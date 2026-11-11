@@ -773,24 +773,25 @@ suspend fun checkForUpdate(
                     var description: String? = null
                     var imageUrl: String? = null
                     try {
-                        val changelogUrl =
-                            if (GithubOwner.isNotBlank()) URL("https://github.com/$GithubOwner/$GithubRepo/releases/download/$tagWithPrefix/changelog.json") else null
-                        val changelogJson = changelogUrl.openStream().bufferedReader().use { it.readText() }
-                        val changelogData = JSONObject(changelogJson)
+                        if (GithubOwner.isNotBlank()) {
+                            val changelogUrl = URL("https://github.com/$GithubOwner/$GithubRepo/releases/download/$tagWithPrefix/changelog.json")
+                            val changelogJson = changelogUrl.openStream().bufferedReader().use { it.readText() }
+                            val changelogData = JSONObject(changelogJson)
 
-                        description = changelogData.optString("description").takeIf { it.isNotEmpty() }
-                        imageUrl = changelogData.optString("image").takeIf { it.isNotEmpty() }
+                            description = changelogData.optString("description").takeIf { it.isNotEmpty() }
+                            imageUrl = changelogData.optString("image").takeIf { it.isNotEmpty() }
 
-                        val changelogArray = changelogData.getJSONArray("changelog")
-                        for (j in 0 until changelogArray.length()) {
-                            val sectionObj = changelogArray.getJSONObject(j)
-                            val title = sectionObj.getString("title")
-                            val itemsArray = sectionObj.getJSONArray("items")
-                            val itemsList = mutableListOf<String>()
-                            for (k in 0 until itemsArray.length()) {
-                                itemsList.add(itemsArray.getString(k))
+                            val changelogArray = changelogData.getJSONArray("changelog")
+                            for (j in 0 until changelogArray.length()) {
+                                val sectionObj = changelogArray.getJSONObject(j)
+                                val title = sectionObj.getString("title")
+                                val itemsArray = sectionObj.getJSONArray("items")
+                                val itemsList = mutableListOf<String>()
+                                for (k in 0 until itemsArray.length()) {
+                                    itemsList.add(itemsArray.getString(k))
+                                }
+                                changelogList.add(ChangelogSection(title, itemsList))
                             }
-                            changelogList.add(ChangelogSection(title, itemsList))
                         }
                     } catch (e: Exception) {
 
