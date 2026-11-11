@@ -37,7 +37,7 @@ object BetterLyrics {
             }
 
             // says who's asking so the server owner can reach us instead of blocking us
-            install(UserAgent) { agent = "Mushy (+https://github.com/Mushy-Music)" }
+            install(UserAgent) { agent = "Mushy (+https://github.com/DiemMyCodex/Mushy)" }
 
             expectSuccess = false
         }

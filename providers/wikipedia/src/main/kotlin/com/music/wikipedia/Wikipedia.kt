@@ -35,7 +35,7 @@ data class WikiSong(
 object Wikipedia {
     private const val Wikidata = "https://www.wikidata.org/w/api.php"
     // wikimedia asks every app to say who it is
-    private const val UserAgent = "Mushy (https://github.com/Mushy-Music)"
+    private const val UserAgent = "Mushy (https://github.com/DiemMyCodex/Mushy)"
     private const val Tag = "Wikipedia"
 
     // song, single, musical work, composition: what a song's item is an instance of

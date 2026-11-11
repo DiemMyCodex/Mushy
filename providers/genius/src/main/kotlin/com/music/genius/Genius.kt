@@ -38,7 +38,7 @@ data class GeniusSong(
 // genius's own website api, the one its pages call: search and song details answer without a key
 object Genius {
     private const val Api = "https://genius.com/api"
-    private const val UserAgent = "Mushy (https://github.com/Mushy-Music)"
+    private const val UserAgent = "Mushy (https://github.com/DiemMyCodex/Mushy)"
     private const val Tag = "Genius"
     // a title match (80 or 40) plus the artist (40): anything less is a different song
     private const val GoodMatch = 60

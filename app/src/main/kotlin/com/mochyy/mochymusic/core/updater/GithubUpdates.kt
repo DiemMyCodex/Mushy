@@ -12,11 +12,11 @@ import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
-const val GithubOwner = ""
-const val GithubRepo = "Mushy-Music"
+const val GithubOwner = "DiemMyCodex"
+const val GithubRepo = "Mushy"
 
-const val GithubProfileUrl = ""
-const val GithubRepoUrl = ""
+const val GithubProfileUrl = "https://github.com/$GithubOwner"
+const val GithubRepoUrl = "https://github.com/$GithubOwner/$GithubRepo"
 const val InstagramUrl = ""
 // Threads names follow the Instagram one
 const val ThreadsUrl = ""
