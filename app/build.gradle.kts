@@ -18,6 +18,10 @@ plugins {
     alias(libs.plugins.protobufPlugin)
 }
 
+base {
+    archivesName.set("Mushy")
+}
+
 extensions.configure<ApplicationExtension> {
     namespace = "com.mochyy.mochymusic"
     compileSdk = 36

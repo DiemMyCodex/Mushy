@@ -55,8 +55,14 @@ jobs:
         run: |
           ./gradlew assembleUniversalGmsDebug --no-configuration-cache --console=plain --warning-mode summary
 
-      - name: Upload Debug APK
+      - name: Prepare Mushy APK
+        run: |
+          mkdir -p dist
+          find app/build/outputs/apk/ -name "*.apk" -exec cp {} dist/Mushy.apk \;
+          ls -lh dist/
+
+      - name: Upload Mushy APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-universal-gms-debug
-          path: app/build/outputs/apk/universalGms/debug/*.apk
+          name: Mushy
+          path: dist/Mushy.apk
