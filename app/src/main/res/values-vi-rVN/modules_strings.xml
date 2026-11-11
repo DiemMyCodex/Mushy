@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- settings, modules: the modules list, a module's page, finding more and signing in -->
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="module_adds_songs">Songs</string>
     <string name="module_adds_lyrics">Lyrics</string>
@@ -53,21 +52,6 @@
     <string name="module_apple_limits">Not available: lossless, Dolby Atmos and Apple\'s Spatial mix (Apple only encodes those for its own DRM, FairPlay) and downloads (web players get no offline licenses).</string>
     <string name="quality_module_stream">Stream</string>
     <string name="quality_provider_footnote">Tap YouTube Music to turn it on or off, or a module to open its page. Drag a handle to change the order: each song plays from the first one that\'s on and has it. Modules you\'ve switched off aren\'t listed here.</string>
-    <string name="discord_behaviour">Hành vi</string>
-    <string name="discord_clear_on_pause">Xóa trạng thái khi tạm dừng</string>
-    <string name="discord_clear_on_pause_desc">Gỡ bài hát khỏi hồ sơ ngay khi bạn tạm dừng và hiển thị lại khi phát tiếp.</string>
-    <string name="video_quality_4k">4K</string>
-    <string name="video_quality_sharp_desc">Nếu video và điện thoại hỗ trợ, sẽ sử dụng nhiều dữ liệu hơn</string>
-    <string name="player_menu_equalizer">Bộ chỉnh âm (Equalizer)</string>
-    <string name="cast_couldnt_connect">Không thể kết nối với %1$s. Hãy đảm bảo thiết bị đang bật và cùng mạng Wi-Fi.</string>
-    <string name="cast_song_failed">%1$s không thể phát bài hát này.</string>
-    <string name="cast_lost">Mất kết nối với %1$s. Đang chuyển sang phát tại thiết bị.</string>
-    <string name="cast_connecting">Đang kết nối…</string>
-    <string name="song_share_quality_best">Tốt nhất</string>
-    <string name="song_share_quality_standard">Tiêu chuẩn</string>
-    <string name="song_share_failed_retry">Không thể tạo lúc này. Vui lòng thử lại.</string>
-    <string name="atmos_streaming_note">Apple mã hóa Atmos chỉ cho FairPlay, hãy cài đặt module hỗ trợ Dolby Atmos để trải nghiệm âm thanh vòm.</string>
-    <string name="playing_music_video_audio">Đang phát âm thanh video ca nhạc</string>
     <string name="module_origin_file">Tệp cục bộ</string>
     <string name="modules_bar">Thanh module</string>
     <string name="modules_link_website">Trang web</string>

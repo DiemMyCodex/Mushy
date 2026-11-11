@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="explore">Explore</string>
     <string name="tab_explore">Explore</string>
@@ -57,7 +57,7 @@
     <string name="added_to_queue">Added to the queue</string>
     <string name="remove_from_cache">Remove from cache</string>
     <string name="save_album">Save</string>
-    <!-- Artist about section -->
+    
     <string name="about_artist">About</string>
     <string name="about_album">About</string>
     <string name="about_playlist">About</string>
@@ -71,7 +71,7 @@
     <string name="show_artist_video_desc">Display a looping video next to the artist name on the artist page</string>
     <string name="show_artist_background_video">Show artist background video</string>
     <string name="show_artist_background_video_desc">Display a looping motion art video behind the artist image</string>
-    <!-- Menu descriptions -->
+    
     <string name="download_playlist_desc">Download all songs for offline playback</string>
     <string name="remove_download_playlist_desc">Remove all downloaded songs from this playlist</string>
     <string name="download_in_progress_desc">Download is in progress</string>
@@ -179,13 +179,13 @@
     <string name="ytm_sync">Automatically sync with your YouTube Music account</string>
     <string name="yt_sync">Auto sync with account</string>
     <string name="more_content">More content</string>
-    <!-- Playlist cover edit -->
+    
     <string name="edit_playlist_cover">Edit playlist cover</string>
     <string name="edit_playlist_cover_note">Note: Your account must be linked to a phone number and verified on YouTube Music to change playlist cover.</string>
     <string name="edit_playlist_cover_note_wait">After selecting an image, please wait a moment for the new cover to appear in your playlist.</string>
     <string name="choose_from_library">Choose from library</string>
     <string name="remove_custom_image">Remove custom image</string>
-    <!-- General -->
+    
     <string name="general">General</string>
     <string name="proxy">Proxy</string>
     <string name="default_lib_chips">Change default library chip</string>
@@ -263,7 +263,7 @@
     <plurals name="seconds">
         <item quantity="other">%d seconds</item>
     </plurals>
-    <!-- Player Settings -->
+    
     <string name="disable_load_more_when_repeat_all">Disable load more when repeat all</string>
     <string name="disable_load_more_when_repeat_all_desc">Don\'t auto load more songs and similar content when repeat all mode is enabled</string>
     <string name="pause_music_when_media_is_muted">Pause music when media is muted</string>
@@ -276,7 +276,7 @@
     <string name="crossfade_gapless_desc">Don\'t crossfade if the album is gapless</string>
     <string name="crossfade_beta_title">Beta Feature</string>
     <string name="crossfade_beta_message">Crossfade is a new feature and may have bugs. If you experience any issues, please report them.\n\nThis feature disables audio offload due to technical limitations.</string>
-    <!-- Romanization Settings -->
+    
     <string name="lyrics_romanization_cyrillic">Cyrillic</string>
     <string name="lyrics_romanize_title">Romanization</string>
     <string name="lyrics_romanization">Lyrics romanization</string>
@@ -298,26 +298,26 @@
     <string name="line_by_line_dialog_desc">This is a hit or miss experimental feature. \n\nBy default, language is determined from the whole song, but with this option on, it will be determined line by line instead. This will allow multi-language songs to work BUT the language might not always be correct (for example if there is a Ukrainian lyric that doesn\'t contain any Ukrainian-specific letters, it might be romanized as Russian instead). \n\nIf you do not have issues, it is recommended to keep this option off.</string>
     <string name="line_by_line_dialog_enable">Enable</string>
     <string name="romanize_current_track">Romanize current track</string>
-    <!-- Lyrics Offset Settings -->
+    
     <string name="lyrics_offset">Lyrics Offset</string>
-    <!-- Material 3 Settings Sections -->
+    
     <string name="settings_section_ui">Interface</string>
     <string name="settings_section_privacy">Privacy &amp; Security</string>
     <string name="settings_section_player">Player &amp; Media</string>
     <string name="settings_section_player_content">Player &amp; Content</string>
     <string name="settings_section_storage">Storage &amp; Data</string>
     <string name="settings_section_system">System &amp; About</string>
-    <!-- Updater -->
+    
     <string name="updater">Updater</string>
     <string name="check_for_updates">Automatically check for updates</string>
     <string name="update_available_title">Update available</string>
     <string name="update_channel_name">App updates</string>
     <string name="update_channel_desc">Notifications about new versions</string>
-    <!-- Offload -->
+    
     <string name="audio_offload">Enable offload</string>
     <string name="audio_offload_description">Use the offload audio path for audio playback. Disabling this may increase power usage but can be useful if you experience issues with audio playback or post processing</string>
     <string name="audio_offload_disabled_by_crossfade">Disabled because Crossfade is active</string>
-    <!-- Google Cast -->
+    
     <string name="google_cast">Google Cast</string>
     <string name="google_cast_description">Enable casting audio to Chromecast and other Cast-enabled devices</string>
     <string name="lyrics_romanize_macedonian">Romanize Macedonian lyrics</string>
@@ -325,7 +325,7 @@
     <string name="integrations">Integrations</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <!-- Integrations page, and signing in to Last.fm and Libre.fm right in the app -->
+    
     <string name="integration_discord_desc">Rich Presence</string>
     <string name="integration_scrobbling_desc">%1$s scrobbling</string>
     <string name="scrobble_page_subtitle">Scrobbling</string>
@@ -362,7 +362,7 @@
     <string name="scrobble_sign_in_busy">%1$s couldn\'t sign you in right now. Try again in a moment.</string>
     <string name="scrobble_sign_in_offline">Couldn\'t reach %1$s. Check your connection and try again.</string>
     <string name="scrobble_sign_up">No account yet? Make one on %1$s</string>
-    <!-- Last.fm -->
+    
     <string name="lastfm_integration">Last.fm Integration</string>
     <string name="enable_scrobbling">Enable scrobbling</string>
     <string name="lastfm_now_playing">Send Now Playing</string>
@@ -396,7 +396,7 @@
     <string name="cache_size_warning_title">Hold on!</string>
     <string name="cache_size_warning_message">You\'ve chosen a cache size limit smaller than what the app is currently using (%1$s). If you continue, the app may remove some cached %2$s to match the new limit. Proceed anyway?</string>
     <string name="cache_size_warning_confirm">Continue</string>
-    <!-- Lyrics Animation Styles -->
+    
     <string name="lyrics_animation_style">Word-by-word animation style</string>
     <string name="none">None</string>
     <string name="fade">Fade</string>
@@ -452,7 +452,7 @@
     <string name="wrapped_playlist_title">Your %s Wrapped</string>
     <string name="wrapped_create_playlist">Create playlist</string>
     <string name="wrapped_playlist_saved">Playlist saved</string>
-    <!-- Equalizer UI -->
+    
     <plurals name="profiles_count">
         <item quantity="other">%d Profiles</item>
     </plurals>
@@ -473,7 +473,7 @@
     <string name="import_error_title">Import Error</string>
     <string name="error_title">Error</string>
     <string name="error_eq_apply_failed">Failed to apply EQ profile: %1$s</string>
-    <!-- mochyEqualizer Strings -->
+    
     <string name="mochy_equalizer">mochyEqualizer</string>
     <string name="mochy_equalizer_desc">Pro-grade acoustic tuning &amp; effects</string>
     <string name="eq_simple">Simple</string>
@@ -513,7 +513,7 @@
     <string name="eq_manage_presets">Manage Presets</string>
     <string name="eq_delete_selected">Delete</string>
     <string name="eq_no_custom_presets">No custom presets found</string>
-    <!-- Hardcoded strings -->
+    
     <string name="found_in_settings_content">Found in Settings &gt; Content</string>
     <string name="plays">plays</string>
     <string name="casting_to">Casting to %s</string>
@@ -527,12 +527,12 @@
     <string name="copied_artist">Copied Artist</string>
     <string name="error_playing">Error playing</string>
     <string name="failed_to_parse_proxy">Failed to parse proxy url.</string>
-    <!-- Playback errors -->
+    
     <string name="error_playback_failed">Playback failed</string>
     <string name="error_copied">Error info copied to clipboard</string>
     <string name="copy_error">Copy error</string>
     <string name="error_copy_hint">Copy error info to help developers debug the issue</string>
-    <!-- Widget strings -->
+    
     <string name="album_art">Album art</string>
     <string name="no_song_playing">No song playing</string>
     <string name="tap_to_open">Tap to open mochy</string>
@@ -547,19 +547,19 @@
     <string name="turntable_widget_description">Circular music widget with play and like controls</string>
     <string name="widget_music_player">Music Player</string>
     <string name="widget_turntable">Turntable</string>
-    <!-- Player Client Settings -->
+    
     <string name="player_client">Player client</string>
     <string name="player_client_android_vr">Android VR</string>
     <string name="player_client_android_vr_desc">Fastest option. Direct stream URLs without signature decryption. Recommended for most users.</string>
     <string name="player_client_web_remix">Web Remix</string>
     <string name="player_client_web_remix_desc">Slower but supports premium formats. Uses JavaScript signature decryption which adds ~5-10 seconds to playback start.</string>
-    <!-- Decryption Library Settings -->
+    
     <string name="decryption_library">Decryption library</string>
     <string name="decryption_library_newpipe">NewPipe Extractor (Official)</string>
     <string name="decryption_library_newpipe_desc">Official TeamNewPipe library. Most up-to-date with YouTube changes. Recommended as default. Automatic fallback to PipePipe API if fails.</string>
     <string name="decryption_library_pipepipe_api">PipePipe API</string>
     <string name="decryption_library_pipepipe_api_desc">API-based decryption using MetroExtractor. Faster but depends on external API. Automatic fallback to NewPipe if fails.</string>
-    <!-- Listen Together -->
+    
     <string name="together">Together</string>
     <string name="listen_together">Listen Together</string>
     <string name="listen_together_desc">Listen to music with friends in real-time</string>
@@ -653,7 +653,7 @@
     <string name="listen_together_no_blocked_users">No blocked users</string>
     <string name="unblock">Unblock</string>
     <string name="user_blocked_by_host">User blocked by host</string>
-    <!-- AI Lyrics Translation -->
+    
     <string name="ai_lyrics_translation">AI Lyrics Translation</string>
     <string name="ai_translating_lyrics">Translating lyrics...</string>
     <string name="ai_lyrics_translated">Lyrics translated</string>
@@ -689,7 +689,7 @@
     <string name="ai_deepl_formality_default">Default</string>
     <string name="ai_deepl_formality_more">More Formal</string>
     <string name="ai_deepl_formality_less">Less Formal</string>
-    <!-- Crash Handler -->
+    
     <string name="crash_title">App Crashed</string>
     <string name="crash_description">An unexpected error occurred. Please share the crash report to help us fix the issue.</string>
     <string name="crash_share_logs">Share Logs</string>
@@ -698,7 +698,7 @@
     <string name="crash_report_subject">mochy Crash Report</string>
     <string name="crash_close">Close</string>
     <string name="crash_no_log">No crash log available</string>
-    <!-- Theme Palette Names -->
+    
     <string name="palette_dynamic">Dynamic</string>
     <string name="palette_crimson">Crimson</string>
     <string name="palette_rose">Rose</string>
@@ -719,7 +719,7 @@
     <string name="palette_brown">Brown</string>
     <string name="palette_grey">Grey</string>
     <string name="palette_blue_grey">Blue Grey</string>
-    <!-- Theme Content Descriptions -->
+    
     <string name="cd_back">Back</string>
     <string name="cd_pure_black_mode">Pure Black mode</string>
     <string name="cd_light_mode">Light mode</string>
@@ -729,7 +729,7 @@
     <string name="play_all">Play all</string>
     <string name="enable_high_refresh_rate">Enable high refresh rate</string>
     <string name="enable_high_refresh_rate_desc">Force the display to run at the highest supported refresh rate (e.g. 120Hz)</string>
-    <!-- Music Recognition -->
+    
     <string name="recognition">Recognition</string>
     <string name="recognize_music">Recognize Music</string>
     <string name="tap_to_recognize">Tap to recognize</string>
@@ -746,7 +746,7 @@
     <string name="hold_to_recognize">Hold search icon to recognize music</string>
     <string name="play_on_app">Play on mochy</string>
     <string name="recognized_track">Recognized Track</string>
-    <!-- CSV Import Strings -->
+    
     <string name="map_csv_columns">Map CSV Columns</string>
     <string name="first_row_is_header">First row is header</string>
     <string name="artist_name_column">Artist Name Column</string>
@@ -758,7 +758,7 @@
     <string name="column_label">Col %d</string>
     <string name="csv_import_failed">Failed to import CSV file</string>
     <string name="csv_preview_failed">Failed to preview CSV file</string>
-    <!-- Discord Integration Redesign -->
+    
     <string name="discord_integration_settings">Discord Integration</string>
     <string name="discord_status">Status</string>
     <string name="discord_status_online">Online</string>
@@ -793,7 +793,7 @@
     <string name="unpin_from_speed_dial">Unpin from library</string>
     <string name="randomize_home_order">Randomize Home Screen Order</string>
     <string name="randomize_home_order_desc">Randomly reorder home screen sections with weighted priorities</string>
-    <!-- Daily Discover -->
+    
     <string name="daily_discover_sounds_like">Sounds like %1$s</string>
     <string name="your_daily_discover">Your daily discover</string>
     <string name="daily_discover_because_you_listen_to">Because you listen to %1$s</string>
@@ -806,8 +806,8 @@
     <string name="monthly_listeners">Monthly</string>
     <string name="unlock_queue">Unlock Queue</string>
     <string name="lock_queue">Lock Queue</string>
-    <!--    //Members-->
-    <!-- ShowMediaInfo -->
+    
+    
     <string name="song_info">Song Info</string>
     <string name="song_info_title_label">Title</string>
     <string name="song_info_format_label">Format</string>
@@ -817,7 +817,7 @@
     <string name="song_info_views_count">%s views</string>
     <string name="song_info_likes_count">%s likes</string>
     <string name="song_info_no_description">No description available</string>
-    <!--    changelog-->
+    
     <string name="error_loading_changelog">Error loading changelog</string>
     <string name="no_old_releases_with_changelog">No old releases with changelog found</string>
     <string name="failed_to_fetch_changelog">Failed to fetch changelog</string>
@@ -830,7 +830,7 @@
     <string name="version_code">Version code</string>
     <string name="namespace">Namespace</string>
     <string name="telegram_channel">Telegram</string>
-    <!-- Onboarding -->
+    
     <string name="welcome_to">Welcome to</string>
     <string name="welcome_preparing_subtitle">Let\'s get everything ready for you.</string>
     <string name="get_started">Get Started</string>
@@ -878,7 +878,7 @@
     <string name="update_info_title">Update Information</string>
     <string name="manual_delete_hint_title">Manual Cleanup</string>
     <string name="manual_delete_hint_desc">You can manually also delete. Deleting old apk will improve the updater to update properly.</string>
-    <!-- Playback Log -->
+    
     <string name="logs_heading">Logs</string>
     <string name="playback_logs">Playback logs</string>
     <string name="playback_logs_desc">View real-time stream resolution and bot mitigation events</string>
@@ -905,7 +905,7 @@
     <string name="all_time_hits">All Time Hits</string>
     <string name="most_played_genre">Most played %1$s</string>
     <string name="add_music">Add Music</string>
-    <!-- the full video mode and youtube video quality -->
+    
     <string name="video_mode">Full video</string>
     <string name="video_mode_exit">Exit video mode</string>
     <string name="video_mode_close_player">Close player</string>
@@ -933,7 +933,7 @@
     <plurals name="video_mode_seek_seconds">
         <item quantity="other">%d seconds</item>
     </plurals>
-    <!-- song share: the share song pages from the player menu and the song menus -->
+    
     <string name="song_share_menu">share song</string>
     <string name="song_share_music_title">Share music</string>
     <string name="song_share_music_only">Music only</string>
@@ -1013,7 +1013,7 @@
     <string name="song_share_as_video">Share as video</string>
     <string name="song_share_as_video_hint">The song plays and the lyrics flow</string>
     <string name="song_share_caption">%1$s · %2$s</string>
-    <!-- a meta app id from developers.facebook.com; while it's empty instagram and facebook get the finished video instead of a story with a sticker -->
+    
     <string name="yt_sync_exclude_title">Don\'t send imported music to YouTube</string>
     <string name="yt_sync_exclude_desc">Songs and playlists from Spotify and other apps stay on this phone</string>
     <string name="yt_sync_undo_title">Undo last sync</string>
@@ -1049,59 +1049,4 @@
     <string name="song_share_quality_standard">Tiêu chuẩn</string>
     <string name="song_share_failed_retry">Không thể tạo lúc này. Vui lòng thử lại.</string>
     <string name="atmos_streaming_note">Apple mã hóa Atmos chỉ cho FairPlay, hãy cài đặt module hỗ trợ Dolby Atmos để trải nghiệm âm thanh vòm.</string>
-    <string name="playing_music_video_audio">Đang phát âm thanh video ca nhạc</string>
-    <string name="module_origin_file">Tệp cục bộ</string>
-    <string name="modules_bar">Thanh module</string>
-    <string name="modules_link_website">Trang web</string>
-    <string name="modules_add_from_file">Thêm từ tệp</string>
-    <string name="modules_add_from_file_body">Chọn tệp zip của module từ bộ nhớ máy.</string>
-    <string name="modules_choose_zip">Chọn tệp zip</string>
-    <string name="modules_file_not_a_zip">Tệp đã chọn không phải là tệp zip hợp lệ.</string>
-    <string name="modules_file_needs_url">Module cần một liên kết hợp lệ.</string>
-    <string name="modules_adding">Đang thêm module…</string>
-    <string name="module_checking">Đang kiểm tra module…</string>
-    <string name="module_servers">Máy chủ module</string>
-    <string name="module_pages">Trang module</string>
-    <string name="module_pages_off">Tắt trang</string>
-    <string name="module_page_missing">Thiếu trang</string>
-    <string name="module_servers_body">Quản lý máy chủ cung cấp module.</string>
-    <string name="module_server_built_in">Tích hợp sẵn</string>
-    <string name="module_server_remove">Xóa máy chủ</string>
-    <string name="module_server_add">Thêm máy chủ</string>
-    <string name="module_server_add_body">Nhập địa chỉ máy chủ cung cấp module.</string>
-    <string name="module_server_add_button">Thêm</string>
-    <string name="module_server_finding">Đang tìm máy chủ…</string>
-    <string name="module_server_not_found">Không tìm thấy máy chủ.</string>
-    <string name="module_server_already_added">Máy chủ này đã được thêm trước đó.</string>
-    <string name="web_quality_lossless">Lossless</string>
-    <string name="web_quality_lossless_detail">FLAC 16-bit / 44.1 kHz chuẩn phòng thu</string>
-    <string name="web_quality_hires">Hi-Res Lossless</string>
-    <string name="web_quality_hires_detail">Lên tới 24-bit / 192 kHz chất lượng cao</string>
-    <string name="web_quality_high">Cao</string>
-    <string name="web_quality_high_detail">AAC 256 kbps tiết kiệm băng thông</string>
-    <string name="web_quality_low">Tiêu chuẩn</string>
-    <string name="web_quality_low_detail">AAC 96 kbps</string>
-    <string name="web_mix">Bản phối âm thanh</string>
-    <string name="web_mix_stereo">Stereo</string>
-    <string name="web_mix_stereo_detail">Hai kênh âm thanh tiêu chuẩn</string>
-    <string name="web_mix_atmos">Dolby Atmos</string>
-    <string name="web_mix_atmos_detail">Âm thanh vòm không gian 3D</string>
-    <string name="quality_download_footnote">Chất lượng tải xuống phụ thuộc vào nguồn bài hát.</string>
-    <string name="quality_download_order">Thứ tự ưu tiên nguồn</string>
-    <string name="quality_download_order_youtube">Ưu tiên YouTube Music</string>
-    <string name="quality_download_order_footnote">Tự động chọn nguồn có chất lượng cao nhất.</string>
-    <string name="module_check_items">Kiểm tra thành phần</string>
-    <string name="module_items_add">Thêm thành phần</string>
-    <string name="module_items_add_to">Thêm vào</string>
-    <string name="module_items_add_body">Thêm thành phần mở rộng cho module.</string>
-    <string name="module_items_add_link">Thêm bằng liên kết</string>
-    <string name="module_items_adding">Đang thêm…</string>
-    <string name="module_items_added">Đã thêm thành công</string>
-    <string name="module_items_added_as_module">Đã thêm dưới dạng module</string>
-    <string name="module_items_not_a_zip">Không phải tệp zip</string>
-    <string name="module_items_nothing">Không có nội dung</string>
-    <string name="module_items_broken">Tệp bị lỗi hoặc không tương thích</string>
-    <string name="module_items_too_big">Kích thước quá lớn</string>
-    <string name="modules_file_not_signed">Tệp module chưa được ký</string>
-    <string name="modules_code_broken">Mã nguồn module gặp lỗi</string>
-</resources>
+    </resources>

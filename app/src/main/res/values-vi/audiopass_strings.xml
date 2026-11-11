@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <!-- audio pass: audio lab's page for usb dacs, bluetooth codecs and bit-perfect output -->
+    
     <string name="audiopass_hub_title">Audio Pass</string>
     <string name="audiopass_title_first">Dac\'s</string>
     <string name="audiopass_title_second">stuff</string>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="bedside_close">Đóng trình phát</string>
     <string name="bedside_unlock_to_close">Mở khóa để đóng trình phát</string>

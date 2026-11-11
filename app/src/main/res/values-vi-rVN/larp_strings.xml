@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="larp_mode">Chế độ Hi-Fi giả lập</string>
     <string name="larp_mode_desc">Thỏa mãn đôi tai với thông số khủng</string>
