@@ -63,7 +63,7 @@ extensions.configure<ApplicationExtension> {
             ?: System.getenv("DISCORD_CLIENT_ID") ?: ""
         buildConfigField("String", "DISCORD_CLIENT_ID", "\"$discordClientId\"")
         manifestPlaceholders["discordRedirectScheme"] =
-            if (discordClientId.isNotBlank()) "discord-$discordClientId" else "mochy-discord-unset"
+            if (discordClientId.isNotBlank()) "discord-$discordClientId" else "mushy-discord-unset"
 
 //add nightly build label support
         val isNightly = project.hasProperty("nightly") && project.property("nightly") == "true"
@@ -282,6 +282,10 @@ extensions.configure<ApplicationExtension> {
             excludes += "META-INF/LICENSE.md"
             excludes += "META-INF/INDEX.LIST"
             excludes += "META-INF/io.netty.versions.properties"
+            excludes += "META-INF/*.version"
+            excludes += "META-INF/*.kotlin_module"
+            excludes += "DebugProbesKt.bin"
+            excludes += "kotlin-tooling-metadata.json"
         }
     }
 }

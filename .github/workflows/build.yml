@@ -45,7 +45,7 @@ jobs:
             -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US"
 
-      - name: Build Debug APK
+      - name: Build Debug APKs (Universal & Arm64)
         env:
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
           LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
@@ -53,16 +53,18 @@ jobs:
           LIBREFM_SECRET: ${{ secrets.LIBREFM_SECRET }}
           DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
         run: |
-          ./gradlew assembleUniversalGmsDebug --no-configuration-cache --console=plain --warning-mode summary
+          ./gradlew assembleUniversalGmsDebug assembleArm64GmsDebug --no-configuration-cache --console=plain --warning-mode summary
 
-      - name: Prepare Mushy APK
+      - name: Prepare Mushy APKs
         run: |
           mkdir -p dist
-          find app/build/outputs/apk/ -name "*.apk" -exec cp {} dist/Mushy.apk \;
+          find app/build/outputs/apk/ -name "*universal*debug*.apk" -exec cp {} dist/Mushy-Universal-Debug.apk \;
+          find app/build/outputs/apk/ -name "*arm64*debug*.apk" -exec cp {} dist/Mushy-Arm64-Debug.apk \;
+          cp dist/Mushy-Universal-Debug.apk dist/Mushy.apk || true
           ls -lh dist/
 
-      - name: Upload Mushy APK
+      - name: Upload Mushy APKs
         uses: actions/upload-artifact@v4
         with:
-          name: Mushy
-          path: dist/Mushy.apk
+          name: Mushy-APKs
+          path: dist/*.apk

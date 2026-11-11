@@ -10,7 +10,7 @@ import com.mochyy.mochymusic.module.ItemProblem
 import com.mochyy.mochymusic.module.ItemsAdded
 import com.mochyy.mochymusic.module.LicenseServer
 import com.mochyy.mochymusic.module.MatchedTrack
-import com.mochyy.mochymusic.module.MochyModule
+import com.mochyy.mochymusic.module.MushyModule
 import com.mochyy.mochymusic.module.ModuleChoice
 import com.mochyy.mochymusic.module.ModuleFeature
 import com.mochyy.mochymusic.module.ModuleInfo
@@ -61,7 +61,7 @@ internal object Wire {
 
     // ---- the module itself ----
 
-    fun aboutToJson(module: MochyModule): JsonObject = buildJsonObject {
+    fun aboutToJson(module: MushyModule): JsonObject = buildJsonObject {
         put("info", infoToJson(module.info))
         put("adds", strings(module.adds.map { it.name }))
         module.signIn?.let { put("signIn", signInToJson(it)) }

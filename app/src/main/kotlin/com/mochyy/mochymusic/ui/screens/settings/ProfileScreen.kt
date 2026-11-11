@@ -778,7 +778,7 @@ fun ProfileScreen(navController: NavController) {
 
             // ---- logo, and the greeting sliding into the bar beside it ----
             Icon(
-                painter = painterResource(R.drawable.ic_mochy_mark),
+                painter = painterResource(R.drawable.ic_mushy_mark),
                 contentDescription = "Mochy",
                 tint = Color.White,
                 modifier = Modifier
@@ -1123,7 +1123,7 @@ private fun DiscordCard(onClick: () -> Unit) {
             .padding(horizontal = 16.dp, vertical = 12.dp),
     ) {
         Image(
-            painter = painterResource(R.drawable.mochy_discord),
+            painter = painterResource(R.drawable.mushy_discord),
             contentDescription = "Discord",
             contentScale = ContentScale.Crop,
             modifier = Modifier

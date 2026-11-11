@@ -7,7 +7,7 @@ import com.mochyy.mochymusic.module.HttpResponse
 import com.mochyy.mochymusic.module.ItemListModule
 import com.mochyy.mochymusic.module.ItemProblem
 import com.mochyy.mochymusic.module.ItemsAdded
-import com.mochyy.mochymusic.module.MochyModule
+import com.mochyy.mochymusic.module.MushyModule
 import com.mochyy.mochymusic.module.ModuleFeature
 import com.mochyy.mochymusic.module.ModuleHost
 import com.mochyy.mochymusic.module.ModuleStorage
@@ -67,7 +67,7 @@ class BridgeTest {
     // the module's own copy of everything it runs on, mochy's classes only reachable through the shared package
     private fun isolated(): URLClassLoader {
         val homes = listOf(
-            ModuleSide::class.java, FakeModule::class.java, MochyModule::class.java, KotlinVersion::class.java,
+            ModuleSide::class.java, FakeModule::class.java, MushyModule::class.java, KotlinVersion::class.java,
             Job::class.java, Json::class.java, SerializationException::class.java,
         ).map { it.protectionDomain.codeSource.location }.distinct()
         return URLClassLoader(homes.toTypedArray(), BridgeOnlyParent(javaClass.classLoader))

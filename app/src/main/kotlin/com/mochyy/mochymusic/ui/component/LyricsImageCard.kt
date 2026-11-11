@@ -395,7 +395,7 @@ fun LyricsImageCard(
                         contentAlignment = Alignment.Center
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.mochy_notification),
+                            painter = painterResource(id = R.drawable.mushy_notification),
                             contentDescription = null,
                             modifier = Modifier
                                 .size(16.dp),

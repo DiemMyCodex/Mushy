@@ -695,7 +695,7 @@ private fun LikedSourceSeparator(source: ImportSource?, modifier: Modifier = Mod
                     .background(colorResource(R.color.ic_launcher_background)),
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_mochy_mark),
+                    painter = painterResource(R.drawable.ic_mushy_mark),
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier.size(9.dp),

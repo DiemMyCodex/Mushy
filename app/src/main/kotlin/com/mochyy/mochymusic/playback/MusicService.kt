@@ -740,7 +740,7 @@ class MusicService :
             val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(getString(R.string.music_player))
                 .setContentText("")
-                .setSmallIcon(R.drawable.mochy_notification)
+                .setSmallIcon(R.drawable.mushy_notification)
                 .setContentIntent(pending)
                 .setOngoing(true)
                 .build()
@@ -758,7 +758,7 @@ class MusicService :
                 R.string.music_player
             )
                 .apply {
-                    setSmallIcon(R.drawable.mochy_notification)
+                    setSmallIcon(R.drawable.mushy_notification)
                 },
         )
         audioOutputs.onRouteChanged = ::applyOutputRoute
@@ -3661,7 +3661,7 @@ class MusicService :
                 )
             }
             val notification = NotificationCompat.Builder(this, ERROR_CHANNEL_ID)
-                .setSmallIcon(R.drawable.mochy_notification)
+                .setSmallIcon(R.drawable.mushy_notification)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(message))

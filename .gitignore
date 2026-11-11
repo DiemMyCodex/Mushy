@@ -83,3 +83,4 @@ app/persistent-debug.keystore
 output-metadata.json
 vcs.xml
 lint/
+translation_cache.json

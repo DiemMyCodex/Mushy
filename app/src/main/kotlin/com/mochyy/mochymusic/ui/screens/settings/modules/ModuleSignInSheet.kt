@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.mochyy.mochymusic.R
 import com.mochyy.mochymusic.importer.account.AccountService
 import com.mochyy.mochymusic.module.AccountState
-import com.mochyy.mochymusic.module.MochyModule
+import com.mochyy.mochymusic.module.MushyModule
 import com.mochyy.mochymusic.module.SignInSpec
 import com.mochyy.mochymusic.module.applemusic.AppleMusicModule
 import com.mochyy.mochymusic.ui.component.PopupSheetHandle
@@ -35,7 +35,7 @@ import com.mochyy.mochymusic.viewmodels.ModulesViewModel
 private val BrowserSurface = Color(0xFF1C1C1C)
 
 /** opens the module's sign-in; [onDone] hears how it went once the account is in, the sheet closes itself */
-fun PopupSheetState.showModuleSignInSheet(module: MochyModule, viewModel: ModulesViewModel, onDone: (AccountState) -> Unit) {
+fun PopupSheetState.showModuleSignInSheet(module: MushyModule, viewModel: ModulesViewModel, onDone: (AccountState) -> Unit) {
     val spec = module.signIn ?: return
     var sheet: PopupSheetHandle? = null
     sheet = showWithHandle(fullBleed = true, surface = BrowserSurface) {
@@ -54,7 +54,7 @@ fun PopupSheetState.showModuleSignInSheet(module: MochyModule, viewModel: Module
 
 @Composable
 private fun ModuleSignInContent(
-    module: MochyModule,
+    module: MushyModule,
     spec: SignInSpec,
     viewModel: ModulesViewModel,
     onDone: (AccountState) -> Unit,

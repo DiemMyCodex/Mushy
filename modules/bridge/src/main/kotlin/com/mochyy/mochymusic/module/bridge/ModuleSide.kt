@@ -8,7 +8,7 @@ import com.mochyy.mochymusic.module.ItemListModule
 import com.mochyy.mochymusic.module.LicenseServer
 import com.mochyy.mochymusic.module.LookModule
 import com.mochyy.mochymusic.module.LyricsModule
-import com.mochyy.mochymusic.module.MochyModule
+import com.mochyy.mochymusic.module.MushyModule
 import com.mochyy.mochymusic.module.ModuleHost
 import com.mochyy.mochymusic.module.ModuleStorage
 import com.mochyy.mochymusic.module.ServerListModule
@@ -37,7 +37,7 @@ import kotlin.io.encoding.Base64
 
 class ModuleSide : ModuleBridge {
 
-    private lateinit var module: MochyModule
+    private lateinit var module: MushyModule
 
     private val work = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val calls = ConcurrentHashMap<Long, Job>()
@@ -49,7 +49,7 @@ class ModuleSide : ModuleBridge {
     private val licenseIds = AtomicLong()
 
     override fun open(entry: String): String {
-        module = Class.forName(entry, true, javaClass.classLoader).getDeclaredConstructor().newInstance() as MochyModule
+        module = Class.forName(entry, true, javaClass.classLoader).getDeclaredConstructor().newInstance() as MushyModule
         return Wire.aboutToJson(module).toString()
     }
 

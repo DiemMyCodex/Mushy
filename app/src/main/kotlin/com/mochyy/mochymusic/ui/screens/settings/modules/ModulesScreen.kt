@@ -162,7 +162,7 @@ private fun ModulesBarBanner(onClick: () -> Unit) {
     ) {
         // the drawing ends at her jacket, so sitting on the card's bottom edge cuts her off there like the design
         Image(
-            painterResource(R.drawable.modules_bar_mochy), null,
+            painterResource(R.drawable.modules_bar_mushy), null,
             contentScale = ContentScale.Fit,
             modifier = Modifier.align(Alignment.Bottom).padding(top = 8.dp).fillMaxHeight(),
         )

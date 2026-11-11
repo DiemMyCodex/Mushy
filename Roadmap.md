@@ -1,4 +1,4 @@
-# Mochy Roadmap
+# Mushy Roadmap
 
 ## List
 ### 8.1.x
@@ -7,7 +7,7 @@ What to expect in the next version & is it done
 
 - New ipod like styles +
 - Crossfade is not working with reverb
-- Enchantments [#89](https://github.com/Mushy/Mochy-Music/issues/89) Searcb bar on downloads folder - exist on main page though 
+- Enchantments [#89](https://github.com/Mushy/Mushy-Music/issues/89) Searcb bar on downloads folder - exist on main page though 
 - Storage usage +
 - Lyrics share +
 - Better crossmix 
@@ -30,7 +30,7 @@ x - Lyrics customizer +
 - nightly builds support [x]
 - Merged pull request of android 7 supports while ficing its problem
 - Lyrics offset with automatic one +
-- Issue [#79](https://github.com/Mushy/Mochy-Music/issues/79)
+- Issue [#79](https://github.com/Mushy/Mushy-Music/issues/79)
 - Bottom section fixes
 - Bringing back reverb
 - Audio tab sould be removed - the option will be on playback +
@@ -45,11 +45,11 @@ x - Lyrics customizer +
 - Refining playlist add music +
 - Seekbar on poster +
 - Discord integration +
-- Issue [#100](https://github.com/Mushy/Mochy-Music/issues/100) Import enchantments 
-- Issue [#99](https://github.com/Mushy/Mochy-Music/issues/99) Downloaded music not playing 
-- Issue [#94](https://github.com/Mushy/Mochy-Music/issues/94) [#98](https://github.com/Mushy/Mochy-Music/issues/98) Album cover invisible 
-- Isssue [#97](https://github.com/Mushy/Mochy-Music/issues/97) 
-- Issue [#93](https://github.com/Mushy/Mochy-Music/issues/93) 
+- Issue [#100](https://github.com/Mushy/Mushy-Music/issues/100) Import enchantments 
+- Issue [#99](https://github.com/Mushy/Mushy-Music/issues/99) Downloaded music not playing 
+- Issue [#94](https://github.com/Mushy/Mushy-Music/issues/94) [#98](https://github.com/Mushy/Mushy-Music/issues/98) Album cover invisible 
+- Isssue [#97](https://github.com/Mushy/Mushy-Music/issues/97) 
+- Issue [#93](https://github.com/Mushy/Mushy-Music/issues/93) 
 
 
 

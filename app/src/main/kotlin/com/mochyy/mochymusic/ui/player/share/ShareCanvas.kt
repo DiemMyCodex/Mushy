@@ -93,7 +93,7 @@ private fun shareText(size: Float, weight: FontWeight = FontWeight.Bold, color: 
 internal fun MochyMark(color: Color, size: Float = 14f) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Icon(
-            painter = painterResource(R.drawable.ic_mochy_mark),
+            painter = painterResource(R.drawable.ic_mushy_mark),
             contentDescription = null,
             tint = color,
             modifier = Modifier.size((size + 2f).dp),

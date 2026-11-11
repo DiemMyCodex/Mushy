@@ -18,7 +18,7 @@ import com.mochyy.mochymusic.module.HttpResponse
 import com.mochyy.mochymusic.module.LookModule
 import com.mochyy.mochymusic.module.LyricsModule
 import com.mochyy.mochymusic.module.MODULE_API_VERSION
-import com.mochyy.mochymusic.module.MochyModule
+import com.mochyy.mochymusic.module.MushyModule
 import com.mochyy.mochymusic.module.ModuleFeature
 import com.mochyy.mochymusic.module.ModuleHost
 import com.mochyy.mochymusic.module.ModuleStorage
@@ -72,7 +72,7 @@ sealed interface ModuleOrigin {
 
 /** a module as the settings show it */
 data class ModuleEntry(
-    val module: MochyModule,
+    val module: MushyModule,
     val origin: ModuleOrigin,
     val enabled: Boolean,
     /** choice id to the option picked; a choice not in here is on its first option */
@@ -104,9 +104,9 @@ class ModuleRegistry @Inject constructor(
     }
 
     @Volatile
-    private var loaded: List<Pair<MochyModule, ModuleOrigin>>? = null
+    private var loaded: List<Pair<MushyModule, ModuleOrigin>>? = null
 
-    private val modules: List<Pair<MochyModule, ModuleOrigin>>
+    private val modules: List<Pair<MushyModule, ModuleOrigin>>
         get() = loaded ?: synchronized(this) { loaded ?: load().also { loaded = it } }
 
     private val _entries = MutableStateFlow<List<ModuleEntry>>(emptyList())
@@ -119,9 +119,9 @@ class ModuleRegistry @Inject constructor(
         scope.launch { refresh() }
     }
 
-    fun module(id: String): MochyModule? = modules.firstOrNull { it.first.info.id == id }?.first
+    fun module(id: String): MushyModule? = modules.firstOrNull { it.first.info.id == id }?.first
 
-    fun all(): List<MochyModule> = modules.map { it.first }
+    fun all(): List<MushyModule> = modules.map { it.first }
 
     // youtube starts on, modules start off until they're turned on (or signed in to)
     fun isEnabled(id: String): Boolean = prefs.getBoolean("enabled_$id", id == SourceModules.YouTubeId)
@@ -150,7 +150,7 @@ class ModuleRegistry @Inject constructor(
     }
 
     // a look that changes settings, the player or the font; only one of those is on at a time, a module with only pages doesn't count
-    private fun restyles(module: MochyModule): Boolean =
+    private fun restyles(module: MushyModule): Boolean =
         module is LookModule && ModuleFeature.Look in module.adds && (module.look.isNotEmpty() || (module as? SkinSource)?.skin?.restyles == true)
 
     fun picks(id: String): Map<String, String> {
@@ -384,8 +384,8 @@ class ModuleRegistry @Inject constructor(
 
     // ---- loading --------------------------------------------------------------------------------
 
-    private fun load(): List<Pair<MochyModule, ModuleOrigin>> {
-        val builtIn = listOf<MochyModule>(AppleMusicModule(), MonochromeModule(), JioSaavnModule()).map { it to ModuleOrigin.BuiltIn }
+    private fun load(): List<Pair<MushyModule, ModuleOrigin>> {
+        val builtIn = listOf<MushyModule>(AppleMusicModule(), MonochromeModule(), JioSaavnModule()).map { it to ModuleOrigin.BuiltIn }
         val apps = discover()
         val savedCode = savedCodeModules()
         CodeModules.tidy(context, savedCode.map { it.optString("folder") }.toSet())
@@ -428,7 +428,7 @@ class ModuleRegistry @Inject constructor(
         }
     }
 
-    private fun hostFor(module: MochyModule) = object : ModuleHost {
+    private fun hostFor(module: MushyModule) = object : ModuleHost {
         private val store = context.getSharedPreferences("module_${module.info.id}", Context.MODE_PRIVATE)
 
         override val storage = object : ModuleStorage {
@@ -457,7 +457,7 @@ class ModuleRegistry @Inject constructor(
 
     /** module apps installed on the phone, signed like mochy and built for this api */
     @SuppressLint("QueryPermissionsNeeded")
-    private fun discover(): List<Pair<MochyModule, ModuleOrigin>> = runCatching {
+    private fun discover(): List<Pair<MushyModule, ModuleOrigin>> = runCatching {
         val pm = context.packageManager
         pm.queryIntentServices(Intent(ModuleAction), PackageManager.GET_META_DATA).mapNotNull { info ->
             val service = info.serviceInfo ?: return@mapNotNull null
@@ -471,7 +471,7 @@ class ModuleRegistry @Inject constructor(
             runCatching {
                 val app = service.applicationInfo
                 val loader = PathClassLoader(app.sourceDir, app.nativeLibraryDir, javaClass.classLoader)
-                val module = loader.loadClass(entry).getDeclaredConstructor().newInstance() as MochyModule
+                val module = loader.loadClass(entry).getDeclaredConstructor().newInstance() as MushyModule
                 if (module.info.apiVersion != MODULE_API_VERSION) {
                     Timber.tag(Tag).w("Skipping module $pkg: built for API ${module.info.apiVersion}, Mochy has $MODULE_API_VERSION")
                     null

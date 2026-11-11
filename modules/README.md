@@ -715,7 +715,7 @@ This part is for people working on Mochy itself. Follow the repo's `CLAUDE.md` e
 
 | What | Where |
 |---|---|
-| The contract every module follows | `modules/api/src/main/kotlin/com/mochyy/mochymusic/module/MochyModule.kt` |
+| The contract every module follows | `modules/api/src/main/kotlin/com/mochyy/mochymusic/module/MushyModule.kt` |
 | The matcher every module uses | `modules/api/.../module/TrackMatcher.kt` |
 | Built-in modules | `modules/applemusic`, `modules/monochrome`, `modules/jiosaavn` |
 | The bridge to a zip's code: what crosses, the JSON, both sides | `modules/bridge` (`shared/Shared.kt`, `Wire.kt`, `ModuleSide.kt`, `BridgedModule.kt`) |
@@ -752,7 +752,7 @@ After a bump, every module app has to be rebuilt against the new `:modules:api`.
 
 ### Adding a look setting
 
-1. Add the key to `LookSetting` in `MochyModule.kt`, with a one-line comment saying its values.
+1. Add the key to `LookSetting` in `MushyModule.kt`, with a one-line comment saying its values.
 2. Add it to `ModuleLooks.Settings` in the app, with the preference key it writes and a parser that turns away anything out of range (`enumName<…>`, `number(it, min..max)` or `bool`).
 3. Add a row to the table in [section 4](#41-look-settings).
 
@@ -798,7 +798,7 @@ A module app is an APK whose code runs inside Mochy. It needs:
 
 - a `<service>` answering the intent `com.mochyy.mochymusic.SOURCE_MODULE`
 - `<meta-data android:name="com.mochyy.mochymusic.module.entry" android:value="your.module.EntryClass" />` on that service
-- an entry class with a no-argument constructor that implements `MochyModule`
+- an entry class with a no-argument constructor that implements `MushyModule`
 - to be **signed with Mochy's own key**, and built for the same `MODULE_API_VERSION`
 
 Build against `:modules:api` as `compileOnly`, since Mochy already has those classes. A module app replaces the built-in module with the same id, so a built-in module can be updated on its own.

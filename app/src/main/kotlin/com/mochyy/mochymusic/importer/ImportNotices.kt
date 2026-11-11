@@ -31,7 +31,7 @@ internal object ImportNotices {
             return
         }
         val notification = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.mochy_notification)
+            .setSmallIcon(R.drawable.mushy_notification)
             .setContentTitle("Import finished")
             .setContentText("Matched $matched of $total songs")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)

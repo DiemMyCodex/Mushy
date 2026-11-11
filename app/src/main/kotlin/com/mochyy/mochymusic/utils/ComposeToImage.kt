@@ -239,7 +239,7 @@ object ComposeToImage {
 
         canvas.drawOval(logoBoxRect, logoBgPaint)
 
-        val rawLogo = context.getDrawable(R.drawable.mochy_icon)?.toBitmap()
+        val rawLogo = context.getDrawable(R.drawable.mushy_icon)?.toBitmap()
         rawLogo?.let {
             val logoPaint = Paint().apply {
 

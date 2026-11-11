@@ -531,7 +531,7 @@ private fun HomeShell() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                painter = painterResource(R.drawable.ic_mochy_mark),
+                painter = painterResource(R.drawable.ic_mushy_mark),
                 contentDescription = "Mochy",
                 tint = Color.White,
                 modifier = Modifier
@@ -1808,7 +1808,7 @@ fun HomeScreen(
                     // it's also where the launch intro lands the splash mark
                     Box(contentAlignment = Alignment.CenterStart) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_mochy_mark),
+                            painter = painterResource(R.drawable.ic_mushy_mark),
                             contentDescription = "Mochy",
                             tint = Color.White,
                             modifier = Modifier

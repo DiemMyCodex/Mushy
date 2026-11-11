@@ -3,13 +3,13 @@
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@android:color/black</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_mark</item>
-        <item name="postSplashScreenTheme">@style/Theme.mochy</item>
+        <item name="postSplashScreenTheme">@style/Theme.Mushy</item>
     </style>
 
     <!-- the anime icons' splash, only told apart on android 12+ (values-v31) -->
     <style name="Theme.App.Starting.Icon" parent="Theme.App.Starting" />
 
-    <style name="Theme.mochy" parent="android:Theme.Material.NoActionBar">
+    <style name="Theme.Mushy" parent="android:Theme.Material.NoActionBar">
         <item name="android:fontFamily">@font/inter</item>
         <item name="fontFamily">@font/inter</item>
         <item name="android:windowContentOverlay">@null</item>

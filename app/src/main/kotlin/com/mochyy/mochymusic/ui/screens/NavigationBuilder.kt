@@ -393,7 +393,7 @@ fun NavGraphBuilder.navigationBuilder(
     }
 
     composable("mochy_settings") {
-        com.mochyy.mochymusic.ui.screens.settings.MochySettingsScreen(navController = navController)
+        com.mochyy.mochymusic.ui.screens.settings.MushySettingsScreen(navController = navController)
     }
 
     // app behaviour kept general's route, so old links and search results still land on it

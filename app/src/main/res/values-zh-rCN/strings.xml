@@ -325,7 +325,7 @@
     <string name="backup_create_failed">无法新建备份</string>
     <string name="restore_failed">无法还原备份</string>
     <string name="discord_integration">Discord 集成</string>
-    <string name="discord_information">mochy 使用 KizzyRPC 库来设置您的 Discord 账号的状态。这会用到 Discord 网关连接，可能会违反 Discord 的服务条款。不过，目前还没有因此原因暂停用户账号的情况。使用风险自负。 \n \nmochy 只提取您的令牌，其他内容都存储在本地。</string>
+    <string name="discord_information">Mushy 使用 KizzyRPC 库来设置您的 Discord 账号的状态。这会用到 Discord 网关连接，可能会违反 Discord 的服务条款。不过，目前还没有因此原因暂停用户账号的情况。使用风险自负。 \n \nmochy 只提取您的令牌，其他内容都存储在本地。</string>
     <string name="dismiss">关闭</string>
     <string name="options">选项</string>
     <string name="preview">预览</string>

@@ -77,17 +77,12 @@ object AppLanguage {
      */
     fun initialize(application: Application) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            val prefs = runBlocking(Dispatchers.IO) { application.dataStore.data.first() }
-            if (prefs[migratedToPlatformKey] != true) {
+            val manager = application.getSystemService(LocaleManager::class.java)
+            if (manager.applicationLocales.isEmpty) {
+                val prefs = runBlocking(Dispatchers.IO) { application.dataStore.data.first() }
                 val previous = prefs[AppLanguageKey]
-                // Mark first, so a platform-triggered recreation cannot repeat migration.
-                runBlocking(Dispatchers.IO) {
-                    application.dataStore.edit { it[migratedToPlatformKey] = true }
-                }
-                val manager = application.getSystemService(LocaleManager::class.java)
-                if (manager.applicationLocales.isEmpty && !previous.isNullOrBlank() && previous != SYSTEM_DEFAULT) {
-                    manager.applicationLocales = LocaleList.forLanguageTags(previous)
-                }
+                val targetTag = if (!previous.isNullOrBlank() && previous != SYSTEM_DEFAULT) previous else "vi"
+                manager.applicationLocales = LocaleList.forLanguageTags(targetTag)
             }
         }
         refreshApplicationResources(application)
