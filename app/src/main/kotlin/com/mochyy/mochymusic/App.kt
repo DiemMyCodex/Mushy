@@ -148,13 +148,8 @@ class App : Application(), SingletonImageLoader.Factory {
         val languageTag = locale.language
 
         YouTube.locale = YouTubeLocale(
-            gl = settings[ContentCountryKey]?.takeIf { it != SYSTEM_DEFAULT }
-                ?: locale.country.takeIf { it in CountryCodeToName }
-                ?: "US",
-            hl = settings[ContentLanguageKey]?.takeIf { it != SYSTEM_DEFAULT }
-                ?: locale.language.takeIf { it in LanguageCodeToName }
-                ?: languageTag.takeIf { it in LanguageCodeToName }
-                ?: "en"
+            gl = settings[ContentCountryKey]?.takeIf { it != SYSTEM_DEFAULT } ?: "VN",
+            hl = settings[ContentLanguageKey]?.takeIf { it != SYSTEM_DEFAULT } ?: "vi"
         )
 
         if (languageTag == "zh-TW") {
@@ -235,15 +230,9 @@ class App : Application(), SingletonImageLoader.Factory {
                 .distinctUntilChanged()
                 .collect { (contentCountry, contentLanguage) ->
                     // UI language must not silently change content preferences.
-                    val systemLocale = AppLanguage.systemLocale(this@App)
                     YouTube.locale = YouTubeLocale(
-                        gl = contentCountry?.takeIf { it != SYSTEM_DEFAULT }
-                            ?: systemLocale.country.takeIf { it in CountryCodeToName }
-                            ?: "US",
-                        hl = contentLanguage?.takeIf { it != SYSTEM_DEFAULT }
-                            ?: systemLocale.toLanguageTag().takeIf { it in LanguageCodeToName }
-                            ?: systemLocale.language.takeIf { it in LanguageCodeToName }
-                            ?: "en"
+                        gl = contentCountry?.takeIf { it != SYSTEM_DEFAULT } ?: "VN",
+                        hl = contentLanguage?.takeIf { it != SYSTEM_DEFAULT } ?: "vi"
                     )
                 }
         }

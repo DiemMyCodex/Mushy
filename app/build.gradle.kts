@@ -187,7 +187,6 @@ extensions.configure<ApplicationExtension> {
             }
         }
         debug {
-            applicationIdSuffix = ".debug"
             isDebuggable = true
             signingConfig = signingConfigs.getByName("debug")
         }

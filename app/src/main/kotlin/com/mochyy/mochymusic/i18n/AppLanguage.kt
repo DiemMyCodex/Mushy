@@ -21,18 +21,21 @@ import java.util.Locale
 
 private val migratedToPlatformKey = booleanPreferencesKey("appLanguageMigratedToPlatform")
 
-/** Resolves the UI language independently of the country/content/lyrics preferences. */
+private val VIETNAMESE = Locale.forLanguageTag("vi")
+
+/** Resolves the UI language independently of the country/content/lyrics preferences. Defaults to Vietnamese. */
 internal fun resolveUiLocale(selection: String?, system: Locale): Locale {
     val selected = selection
         ?.takeUnless { it.isBlank() || it == SYSTEM_DEFAULT }
         ?.let(Locale::forLanguageTag)
         ?.takeIf { it.language.isNotBlank() }
-    return selected ?: system.takeIf { it.language.isNotBlank() } ?: Locale.ENGLISH
+    return selected ?: VIETNAMESE
 }
 
-/** Put English before any other device language when a string is missing. */
+/** Put Vietnamese before English when a string is missing. */
 internal fun uiLocaleFallbacks(locale: Locale): List<Locale> =
-    if (locale == Locale.ENGLISH) listOf(Locale.ENGLISH) else listOf(locale, Locale.ENGLISH)
+    if (locale.language == "vi") listOf(locale, Locale.ENGLISH)
+    else listOf(locale, VIETNAMESE, Locale.ENGLISH)
 
 object AppLanguage {
     /** The device language, not the app's override. */

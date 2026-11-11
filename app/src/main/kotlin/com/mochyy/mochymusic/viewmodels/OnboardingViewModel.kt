@@ -264,7 +264,7 @@ class OnboardingViewModel @Inject constructor(
         const val MinSuggestions = 30
         const val MaxSuggestions = 48
         val SuggestionQueries = listOf(
-            "pop", "hip hop", "r&b", "rock", "indie", "k-pop", "edm", "latin", "jazz", "j-pop", "country", "afrobeats",
+            "V-Pop", "Nhạc trẻ", "Rap Việt", "Indie Việt", "Acoustic Việt", "Ballad Việt", "Nhạc trữ tình", "R&B Việt", "EDM Việt", "Nhạc Trịnh", "Bolero Việt"
         )
     }
 
