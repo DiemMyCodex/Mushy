@@ -153,6 +153,9 @@ def main():
     CHUNK_SIZE = 3 * 1024 * 1024
     chunks = [(s, min(s + CHUNK_SIZE - 1, artifact_size - 1)) for s in range(0, artifact_size, CHUNK_SIZE)]
 
+    import threading
+    write_lock = threading.Lock()
+
     def fetch_chunk(c):
         s, e = c
         req = urllib.request.Request(blob_url, headers={"Range": f"bytes={s}-{e}"})
@@ -161,9 +164,10 @@ def main():
                 with urllib.request.urlopen(req, context=ctx, timeout=20) as r:
                     d = r.read()
                     if len(d) == (e - s + 1):
-                        with open(tmp_zip, "r+b") as f:
-                            f.seek(s)
-                            f.write(d)
+                        with write_lock:
+                            with open(tmp_zip, "r+b") as f:
+                                f.seek(s)
+                                f.write(d)
                         return True
             except:
                 time.sleep(0.5)

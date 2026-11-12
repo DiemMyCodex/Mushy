@@ -31,8 +31,8 @@ extensions.configure<ApplicationExtension> {
         applicationId = "com.mushy.mushymusic"
         minSdk = 24
         targetSdk = 36
-        versionCode = 73
-        versionName = "8.3.2 build#1225"
+        versionCode = 74
+        versionName = "8.3.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
