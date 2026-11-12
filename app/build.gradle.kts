@@ -182,7 +182,7 @@ extensions.configure<ApplicationExtension> {
             signingConfig = if (hasReleaseSigning) {
                 signingConfigs.getByName("release")
             } else {
-                signingConfigs.getByName("debug")
+                signingConfigs.getByName("persistentDebug")
             }
         }
         debug {
