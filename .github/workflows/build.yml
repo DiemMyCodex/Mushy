@@ -45,7 +45,7 @@ jobs:
             -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US"
 
-      - name: Build Optimized APKs (Release & Debug)
+      - name: Build Optimized Arm64 Release APK
         env:
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
           LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
@@ -53,19 +53,21 @@ jobs:
           LIBREFM_SECRET: ${{ secrets.LIBREFM_SECRET }}
           DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
         run: |
-          ./gradlew assembleArm64GmsRelease assembleUniversalGmsRelease assembleArm64GmsDebug --no-configuration-cache --console=plain --warning-mode summary
+          ./gradlew assembleArm64GmsRelease \
+            -Dorg.gradle.jvmargs="-Xmx4096M -XX:+UseParallelGC" \
+            --no-configuration-cache \
+            --console=plain \
+            --warning-mode summary
 
-      - name: Prepare Mushy APKs
+      - name: Prepare Mushy APK
         run: |
           mkdir -p dist
-          find app/build/outputs/apk/ -name "*arm64*release*.apk" -exec cp {} dist/Mushy-Arm64-Release.apk \;
-          find app/build/outputs/apk/ -name "*universal*release*.apk" -exec cp {} dist/Mushy-Universal-Release.apk \;
-          find app/build/outputs/apk/ -name "*arm64*debug*.apk" -exec cp {} dist/Mushy-Arm64-Debug.apk \;
-          cp dist/Mushy-Arm64-Release.apk dist/Mushy.apk || cp dist/Mushy-Universal-Release.apk dist/Mushy.apk || true
+          find app/build/outputs/apk/ -name "*arm64*release*.apk" -exec cp {} dist/Mushy.apk \;
           ls -lh dist/
 
-      - name: Upload Mushy APKs
+      - name: Upload Mushy APK
         uses: actions/upload-artifact@v4
         with:
-          name: Mushy-APKs
-          path: dist/*.apk
+          name: Mushy-APK
+          path: dist/Mushy.apk
+          retention-days: 7
