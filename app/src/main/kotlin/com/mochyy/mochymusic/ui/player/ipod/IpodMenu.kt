@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 // one screen of the ipod's menu tree, named the way its header shows it
 @Immutable
 sealed class IpodPage(val title: String) {
-    data object Main : IpodPage("Mochy")
+    data object Main : IpodPage("Mushy")
     data object Music : IpodPage("Music")
     data object NowPlaying : IpodPage("Now Playing")
     data object CoverFlow : IpodPage("Cover Flow")

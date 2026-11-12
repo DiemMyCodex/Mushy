@@ -269,7 +269,7 @@ internal class SpinningArtwork(
                 json.parseToJsonElement(reply).jsonObject["files"]?.jsonArray?.firstOrNull()
                     ?.jsonObject?.get("url")?.jsonPrimitive?.contentOrNull.orEmpty()
             },
-            // catbox keeps files for good; the 30 days only bounds how long Mochy reuses one
+            // catbox keeps files for good; the 30 days only bounds how long Mushy reuses one
             Host("catbox.moe", keepsMs = 30 * 24 * HourMs) { gif ->
                 post("https://catbox.moe/user/api.php", "fileToUpload", gif, "reqtype" to "fileupload")
             },

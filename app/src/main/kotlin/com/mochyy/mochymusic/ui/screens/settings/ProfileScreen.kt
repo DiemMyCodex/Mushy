@@ -1,6 +1,6 @@
 // ProfileScreen.kt
 //
-// The Mochy page. A dark header holds the profile ID card over a dot grid, with a giant MOCHY
+// The Mushy page. A dark header holds the profile ID card over a dot grid, with a giant MOCHY
 // column sliding up the right edge. Pull the header down and it fills the screen, the card flips to
 // a scratch-off barcode, and scratching it opens the month's recap (ui/screens/recap) - which hands
 // back to this header when it's done. Below: listening time (into Stats), version, settings.
@@ -191,7 +191,7 @@ import kotlin.math.roundToInt
 import kotlin.math.sin
 import kotlin.random.Random
 
-private object MochyGreeting {
+private object MushyGreeting {
     private fun pick() = listOf("Hello again", "Hey", "Welcome back", "Good to see you").random()
 
     private val greetingState = mutableStateOf("Hello again")
@@ -419,7 +419,7 @@ fun ProfileScreen(navController: NavController) {
     val scrollState = rememberScrollState()
     val glassState = remember { GlassState() }
 
-    // the Mochy page, and over it the profile page when the card has been tapped
+    // the Mushy page, and over it the profile page when the card has been tapped
     Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
         BoxWithConstraints(
             modifier = Modifier
@@ -539,7 +539,7 @@ fun ProfileScreen(navController: NavController) {
                     ) {
                         // greeting (in the header; its scrolled-away twin lives in the top bar)
                         Text(
-                            text = "${MochyGreeting.current}, ${accountName.ifBlank { "there" }}!",
+                            text = "${MushyGreeting.current}, ${accountName.ifBlank { "there" }}!",
                             style = PageTitle,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
@@ -779,7 +779,7 @@ fun ProfileScreen(navController: NavController) {
             // ---- logo, and the greeting sliding into the bar beside it ----
             Icon(
                 painter = painterResource(R.drawable.ic_mushy_mark),
-                contentDescription = "Mochy",
+                contentDescription = "Mushy",
                 tint = Color.White,
                 modifier = Modifier
                     .padding(start = HomeContentInset, top = statusBarTop + TopBarLogoTop)
@@ -793,7 +793,7 @@ fun ProfileScreen(navController: NavController) {
             )
             if (collapseProgress > 0.01f) {
                 Text(
-                    text = "${MochyGreeting.current}, ${accountName.ifBlank { "there" }}!",
+                    text = "${MushyGreeting.current}, ${accountName.ifBlank { "there" }}!",
                     style = PageTitle.copy(fontSize = 18.sp),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,

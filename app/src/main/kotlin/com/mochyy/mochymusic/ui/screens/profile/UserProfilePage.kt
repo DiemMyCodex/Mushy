@@ -2,7 +2,7 @@
 //
 // The profile page from the mock: the photo, the name in big type with the card number on its
 // baseline, "Edit profile", then listening totals, what you've been playing, your playlists and the
-// artists you play most. It opens out of the ID card on the Mochy page (see ProfileMorph.kt), so
+// artists you play most. It opens out of the ID card on the Mushy page (see ProfileMorph.kt), so
 // the photo, name and number stay hidden until the flying copies have landed on them.
 
 package com.mochyy.mochymusic.ui.screens.profile

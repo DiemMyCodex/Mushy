@@ -33,7 +33,7 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
 
-/** How much room Mochy takes, in the four parts the Storage page shows, and the phone around it. */
+/** How much room Mushy takes, in the four parts the Storage page shows, and the phone around it. */
 data class StorageUsage(
     val deviceTotal: Long,
     val deviceFree: Long,
@@ -45,7 +45,8 @@ data class StorageUsage(
     /** the app itself and its settings, everything not counted above */
     val appData: Long,
 ) {
-    val mochy: Long get() = cache + downloads + database + appData
+    val mushy: Long get() = cache + downloads + database + appData
+    val mochy: Long get() = mushy
     val othersUsed: Long get() = (deviceTotal - deviceFree - mochy).coerceAtLeast(0L)
 }
 
@@ -87,7 +88,7 @@ class StorageViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
-    /** Walks Mochy's folders again. The page calls it on open and whenever the downloads change. */
+    /** Walks Mushy's folders again. The page calls it on open and whenever the downloads change. */
     fun measure() {
         viewModelScope.launch { _usage.value = withContext(Dispatchers.IO) { readUsage() } }
     }

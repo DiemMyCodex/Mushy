@@ -1,4 +1,4 @@
-// The JioSaavn source module: JioSaavn's catalog in AAC up to 320 kbps. Built into Mochy for now;
+// The JioSaavn source module: JioSaavn's catalog in AAC up to 320 kbps. Built into Mushy for now;
 // written against :modules:api only, so it can later ship as its own APK.
 plugins {
     alias(libs.plugins.kotlin.serialization)

@@ -91,7 +91,7 @@ private fun EditProfileContent(currentName: String, currentPhoto: Any?, onSaved:
             modifier = Modifier.background(Onb.Page),
             footer = {
                 Text(
-                    "Mochy will never store your data online!",
+                    "Mushy will never store your data online!",
                     color = Onb.Faint,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold,

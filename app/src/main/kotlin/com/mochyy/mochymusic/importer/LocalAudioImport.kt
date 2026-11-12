@@ -2,7 +2,7 @@
 //
 // Turning one audio file into a song in the library: tags, artwork, artist, album, lyrics and format row.
 // Used by the local import (files picked or found on the phone, see LocalImportService) and by
-// audio files shared into Mochy from other apps.
+// audio files shared into Mushy from other apps.
 
 package com.mochyy.mochymusic.importer
 

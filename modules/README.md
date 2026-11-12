@@ -1,12 +1,12 @@
-# Making modules for Mochy
+# Making modules for Mushy
 
-A **module** adds something to Mochy without an app update. One module can add any mix of these:
+A **module** adds something to Mushy without an app update. One module can add any mix of these:
 
-| It adds | What Mochy does with it |
+| It adds | What Mushy does with it |
 |---|---|
 | **Songs** | Asks it for the song that's playing (in the provider order), and plays the stream itself, so every Audio Lab effect still works. |
 | **Lyrics** | Puts it first among the lyrics sources while it's on. |
-| **A look** | Restyles Mochy while it's on: its settings (player style, colours, blur, corners…), **a player of its own**, **its own font**, **pictures** and **pages**. Everything goes back the way it was when it's turned off. |
+| **A look** | Restyles Mushy while it's on: its settings (player style, colours, blur, corners…), **a player of its own**, **its own font**, **pictures** and **pages**. Everything goes back the way it was when it's turned off. |
 
 One switch turns a module on or off. Off means gone everywhere: from Audio Quality, the provider order, the download order, the lyrics sources and the look. Every new module starts **off**, so adding one never changes anything until the user turns it on.
 
@@ -22,9 +22,9 @@ One switch turns a module on or off. Off means gone everywhere: from Audio Quali
 6. [Zip modules](#6-zip-modules)
 7. [Putting your module in the catalog](#7-putting-your-module-in-the-catalog)
 8. [Testing your module](#8-testing-your-module)
-9. [How Mochy uses your module](#9-how-mochy-uses-your-module)
+9. [How Mushy uses your module](#9-how-mochy-uses-your-module)
 10. [Rules to follow](#10-rules-to-follow)
-11. [For Mochy developers: changing the module interface](#11-for-mochy-developers-changing-the-module-interface)
+11. [For Mushy developers: changing the module interface](#11-for-mochy-developers-changing-the-module-interface)
 12. [Troubleshooting](#12-troubleshooting)
 
 ---
@@ -33,14 +33,14 @@ One switch turns a module on or off. Off means gone everywhere: from Audio Quali
 
 | You want to… | Make a… | Needs a server? | Who can make it |
 |---|---|---|---|
-| Restyle Mochy, design your own player, add pages | **Look**, as a zip (or a `manifest.json` link) | No | Anyone |
+| Restyle Mushy, design your own player, add pages | **Look**, as a zip (or a `manifest.json` link) | No | Anyone |
 | Add songs or lyrics from a service | **Web module**: a link to a small HTTP service | Yes | Anyone |
 | Share a web module as one file | **Zip with a `url`** | Yes (the service it names) | Anyone |
 | Add songs from a JavaScript script (`searchTracks` + `getTrackStreamUrl`) | **Script** for the **JS Modules** module: a `.js` in a zip or a link, added on its page | No (it reaches its own services) | Anyone |
 | Add another Monochrome server | Not a module: Monochrome's page, **Servers** | No | Anyone |
-| Ship code that runs inside Mochy | **Zip with its own code**, **built-in module** or **module app** | No | Mochy developers only |
+| Ship code that runs inside Mushy | **Zip with its own code**, **built-in module** or **module app** | No | Mushy developers only |
 
-Nothing from a look, a web module or a plain zip runs inside Mochy. They only hand back JSON, stream links and look values, so anyone can make one and nobody has to be trusted with the app. Code that runs inside Mochy (a zip with its own code, built-in modules and module apps) is only loaded when it's signed with Mochy's own key, see [section 6.1](#61-zips-with-their-own-code) and [section 11](#11-for-mochy-developers-changing-the-module-interface). Scripts for JS Modules are JavaScript that runs sandboxed inside that module, with no access to the phone or the app, only to the internet through Mochy ([section 6.2](#62-scripts-for-js-modules)).
+Nothing from a look, a web module or a plain zip runs inside Mushy. They only hand back JSON, stream links and look values, so anyone can make one and nobody has to be trusted with the app. Code that runs inside Mushy (a zip with its own code, built-in modules and module apps) is only loaded when it's signed with Mushy's own key, see [section 6.1](#61-zips-with-their-own-code) and [section 11](#11-for-mochy-developers-changing-the-module-interface). Scripts for JS Modules are JavaScript that runs sandboxed inside that module, with no access to the phone or the app, only to the internet through Mushy ([section 6.2](#62-scripts-for-js-modules)).
 
 ---
 
@@ -68,9 +68,9 @@ Nothing from a look, a web module or a plain zip runs inside Mochy. They only ha
    - **Windows:** right-click the folder → *Send to* → *Compressed (zipped) folder*
    - **Terminal:** `cd midnight && zip midnight.zip manifest.json`
 
-3. Send `midnight.zip` to your phone. In Mochy go to **Settings → Modules → Find more sources → Add from a file → Choose a .zip**.
+3. Send `midnight.zip` to your phone. In Mushy go to **Settings → Modules → Find more sources → Add from a file → Choose a .zip**.
 
-4. Mochy shows what the module adds. Tap **Add**, open its page and turn it on. Turn it off and your own settings come back.
+4. Mushy shows what the module adds. Tap **Add**, open its page and turn it on. Turn it off and your own settings come back.
 
 That's a whole module
 
@@ -82,7 +82,7 @@ Every module, whether it comes as a link or a zip, describes itself with one `ma
 
 | Field | Required | What it's for |
 |---|---|---|
-| `id` | `id` or `name` | A short stable name, like `my-flac`. Mochy turns it into `web.my-flac` (link) or `local.my-flac` (zip), so it can never replace a built-in module. **Keep it the same forever**: adding a module with the same id again updates it instead of adding a second copy. |
+| `id` | `id` or `name` | A short stable name, like `my-flac`. Mushy turns it into `web.my-flac` (link) or `local.my-flac` (zip), so it can never replace a built-in module. **Keep it the same forever**: adding a module with the same id again updates it instead of adding a second copy. |
 | `name` | `id` or `name` | What people see. |
 | `version` | No | Shown on the module's page. Bump it when you change anything. |
 | `description` | No | One line about what it does. |
@@ -98,9 +98,9 @@ Every module, whether it comes as a link or a zip, describes itself with one `ma
 Two rules worth knowing:
 
 - **A manifest with no `resources` and nothing that changes the look (`look`, `player`, `font`, `pages`) is read as a song source**, because that's what most services of this kind are.
-- **A website's own `manifest.json` is turned away.** Websites have one for "install to home screen", with `start_url`, `display`, `short_name` or `icons`. If your manifest has any of those and none of `resources`, `look`, `player`, `font` or `pages`, Mochy says "That's a website, not a module". Don't use those field names in a module manifest.
+- **A website's own `manifest.json` is turned away.** Websites have one for "install to home screen", with `start_url`, `display`, `short_name` or `icons`. If your manifest has any of those and none of `resources`, `look`, `player`, `font` or `pages`, Mushy says "That's a website, not a module". Don't use those field names in a module manifest.
 
-Fields Mochy doesn't know are ignored, btw
+Fields Mushy doesn't know are ignored, btw
 
 ---
 
@@ -110,7 +110,7 @@ A look can do five things, in any mix:
 
 | | Where it goes in `manifest.json` | Works from |
 |---|---|---|
-| [4.1 Change Mochy's settings](#41-look-settings) | `look` | a zip / a link |
+| [4.1 Change Mushy's settings](#41-look-settings) | `look` | a zip / a link |
 | [4.2 Bring a player of its own](#42-a-player-of-your-own) | `player` | a zip / a link |
 | [4.3 Bring its own font](#43-your-own-font) | `font` | a zip only |
 | [4.4 Use its own pictures](#44-pictures) | paths in `player` and `pages` | a zip, or a link with pictures beside its manifest |
@@ -120,12 +120,12 @@ How looks behave:
 
 - **Only one look is on at a time** Turning a second one on turns the first off and gives its settings back first. A module with *only* pages doesn't count as a look here, so it can stay on next to one
 - **The user always wins.** If someone changes a setting by hand while your look is on, they keep their value when your look goes off.
-- **It survives restarts.** Mochy remembers what each look replaced, so turning it off after a restart still gives the right settings back
-- **Nothing runs.** A look is a description. Mochy draws it with its own parts, so it stays smooth on slow phones and can't break anything
+- **It survives restarts.** Mushy remembers what each look replaced, so turning it off after a restart still gives the right settings back
+- **Nothing runs.** A look is a description. Mushy draws it with its own parts, so it stays smooth on slow phones and can't break anything
 
 ### 4.1 Look settings
 
-A look may change **only** these settings, so a module can restyle Mochy but never reach accounts, the network or playback. Values are written as text (`"true"`, `"12"`, `"FLAGSHIP"`). Keys must be spelled exactly as below, while style names may be any case. A value that's out of range is simply ignored
+A look may change **only** these settings, so a module can restyle Mushy but never reach accounts, the network or playback. Values are written as text (`"true"`, `"12"`, `"FLAGSHIP"`). Keys must be spelled exactly as below, while style names may be any case. A value that's out of range is simply ignored
 
 | Key | Values | What it changes |
 |---|---|---|
@@ -146,11 +146,11 @@ A look may change **only** these settings, so a module can restyle Mochy but nev
 | `enableProgressiveBlur` | `true`, `false` | Blur that grows towards edges |
 | `elementBlur` | `true`, `false` | Blur on moving elements |
 
-A look made only of settings can also be added from a link to its `manifest.json`, for example a raw GitHub link like `https://raw.githubusercontent.com/you/midnight/main/manifest.json`. Want a setting that isn't in this list? It has to be added to Mochy first, see [section 11](#adding-a-look-setting).
+A look made only of settings can also be added from a link to its `manifest.json`, for example a raw GitHub link like `https://raw.githubusercontent.com/you/midnight/main/manifest.json`. Want a setting that isn't in this list? It has to be added to Mushy first, see [section 11](#adding-a-look-setting).
 
 ### 4.2 A player of your own
 
-`player` describes a whole now-playing screen. While your look is on, it's the first style in the player's style selector (hold the player to open it) under the name you give it. Mochy switches to it when your look turns on, and back to the user's style when it goes off.
+`player` describes a whole now-playing screen. While your look is on, it's the first style in the player's style selector (hold the player to open it) under the name you give it. Mushy switches to it when your look turns on, and back to the user's style when it goes off.
 
 Your player gets everything the other styles have, for free: swipe sideways to change song (your cover and words ride along), tap to play or pause, swipe down to close, the ••• menu (lyrics, song info, turning sideways), and its clocks resting while it's hidden.
 
@@ -219,7 +219,7 @@ Every background takes `"dim"`, from `0` to `0.9`, a black veil over it so text 
 | `row` | Its own `blocks`, side by side | `blocks` · `gap` (`12`). Words, bars and columns share the width; covers, pictures and buttons keep their size. |
 | `column` | Its own `blocks`, stacked (handy inside a row) | `blocks` · `gap` (`12`) |
 
-Rows and columns can go three deep. A block Mochy doesn't know is skipped, so a newer layout still opens on an older Mochy.
+Rows and columns can go three deep. A block Mushy doesn't know is skipped, so a newer layout still opens on an older Mushy.
 
 **Text fields** (for `title`, `artist`, `album`, `text`): `size` (`8`–`72`), `weight` (`thin`, `light`, `normal`, `medium`, `semibold`, `bold`, `black`), `color`, `lines` (`1`–`4`, longer text ends in "…"), `upper` (`true` for CAPITALS), `align` (`start`, `center`, `end`).
 
@@ -354,9 +354,9 @@ vinyl-night.zip
 
 ## 5. A module that plays songs or lyrics (a web module)
 
-A web module is a small HTTP service. Mochy calls it with plain **GET** requests and reads JSON back. People add it by pasting its base link (`https://my-flac.example`) or the link to its manifest (`https://my-flac.example/manifest.json`). Both work.
+A web module is a small HTTP service. Mushy calls it with plain **GET** requests and reads JSON back. People add it by pasting its base link (`https://my-flac.example`) or the link to its manifest (`https://my-flac.example/manifest.json`). Both work.
 
-Every request carries `Accept: application/json` and `User-Agent: Mochy`.
+Every request carries `Accept: application/json` and `User-Agent: Mushy`.
 
 ### `GET {base}/manifest.json`
 
@@ -376,7 +376,7 @@ Every request carries `Accept: application/json` and `User-Agent: Mochy`.
 
 ### `GET {base}/search?q=<artist title>&quality=…`
 
-Mochy searches with the **first artist** and the **title without extras**: no "(feat. …)", "(Official Video)" or "- Remastered". For example, `q=benny%20blanco%20eastside`.
+Mushy searches with the **first artist** and the **title without extras**: no "(feat. …)", "(Official Video)" or "- Remastered". For example, `q=benny%20blanco%20eastside`.
 
 ```json
 {
@@ -394,9 +394,9 @@ Mochy searches with the **first artist** and the **title without extras**: no "(
 }
 ```
 
-- `id` and `title` are required. Give `artist`, `album`, `duration` and `isrc` too: Mochy picks the right recording with its own matcher, and these are how it tells the studio song from a remix, a live take or a sped-up version.
+- `id` and `title` are required. Give `artist`, `album`, `duration` and `isrc` too: Mushy picks the right recording with its own matcher, and these are how it tells the studio song from a remix, a live take or a sped-up version.
 - `duration` is in **seconds** (milliseconds also work, anything over 10000 is read as ms).
-- `streamURL` is optional. When it's there, Mochy skips the stream call below.
+- `streamURL` is optional. When it's there, Mushy skips the stream call below.
 - Return a handful of results (5–10), best first.
 
 ### `GET {base}/stream/{id}?quality=…`
@@ -414,19 +414,19 @@ Mochy searches with the **first artist** and the **title without extras**: no "(
 
 - **What kind of stream:** `format` or `manifest` saying `hls`/`m3u8` plays it as HLS, `dash`/`mpd` as DASH. Anything else plays as one file. Byte ranges are welcome, since seeking uses them.
 - **Codec:** `codec` names it for the format badge: `flac`, `alac`, `aac`, `opus`, `mp3`, `eac3`, `eac3-joc`/`atmos`.
-- **Encrypted streams:** a stream marked `"encrypted": true` is passed over, because Mochy has no keys for it.
-- **Sample rate:** give `sampleRate` and `bitDepth`. A FLAC the phone can't decode at that rate is passed over instead of playing silence. Without them, Mochy reads "96 kHz" and "24-bit" out of `quality`.
+- **Encrypted streams:** a stream marked `"encrypted": true` is passed over, because Mushy has no keys for it.
+- **Sample rate:** give `sampleRate` and `bitDepth`. A FLAC the phone can't decode at that rate is passed over instead of playing silence. Without them, Mushy reads "96 kHz" and "24-bit" out of `quality`.
 - **Redirects:** `url` may redirect (a 302 or 307 to a CDN is fine).
 
 ### Quality and Dolby Atmos
 
 A web module that plays songs gets two choices on its page:
 
-- **Stream:** Lossless (default), Hi-Res, High or Low, sent as `quality=`. If your manifest declares a `quality` setting, Mochy sends the option whose name matches best (`lossless`, `flac`, `hires`, `24bit`, `high`, `320`, `low`…). If it declares none, Mochy sends TIDAL's names: `LOSSLESS`, `HI_RES_LOSSLESS`, `HIGH`, `LOW`.
+- **Stream:** Lossless (default), Hi-Res, High or Low, sent as `quality=`. If your manifest declares a `quality` setting, Mushy sends the option whose name matches best (`lossless`, `flac`, `hires`, `24bit`, `high`, `320`, `low`…). If it declares none, Mushy sends TIDAL's names: `LOSSLESS`, `HI_RES_LOSSLESS`, `HIGH`, `LOW`.
 - **Dolby Atmos:** Stereo (default) or Atmos. Atmos is only asked for when the phone can decode it (`atmos=auto`, or your declared `atmos` setting's "on" option). With Stereo, a declared `atmos` setting is sent as its "off" option.
-- In search results, mark an Atmos mix with `"atmos": true` (or `atmos`/`joc`/`ec+3` in `audioMode`, `audioModes`, `audioQuality` or `format`). Mochy then picks the Atmos row or the stereo row to match the user's choice.
+- In search results, mark an Atmos mix with `"atmos": true` (or `atmos`/`joc`/`ec+3` in `audioMode`, `audioModes`, `audioQuality` or `format`). Mushy then picks the Atmos row or the stereo row to match the user's choice.
 
-Every other declared setting is sent as its `default` on every search and stream call. Mochy has no form for them.
+Every other declared setting is sent as its `default` on every search and stream call. Mushy has no form for them.
 
 ### `GET {base}/lyrics?title=&artist=&album=&duration=`
 
@@ -447,7 +447,7 @@ Every other declared setting is sent as its `default` on every search and stream
 A Cloudflare Worker that serves your own files (free, no server to look after):
 
 ```js
-// worker.js: a tiny Mochy module
+// worker.js: a tiny Mushy module
 const SONGS = [
   { id: "1", title: "My Song", artist: "Me", album: "Demo", duration: 201, url: "https://example.com/my-song.flac" },
 ];
@@ -476,7 +476,7 @@ export default {
 };
 ```
 
-Deno Deploy, Vercel and Netlify work the same way. **GitHub alone can't host a song or lyrics module.** It only serves files, and Mochy needs an answer that depends on the song it asks for. GitHub is fine for looks.
+Deno Deploy, Vercel and Netlify work the same way. **GitHub alone can't host a song or lyrics module.** It only serves files, and Mushy needs an answer that depends on the song it asks for. GitHub is fine for looks.
 
 ---
 
@@ -497,7 +497,7 @@ my-module.zip
     └── manifest.json    ← or inside one folder, the way most zip tools pack a folder
 ```
 
-- **Pictures and fonts are unpacked, nothing else.** `.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.ttf` and `.otf` files in the manifest's folder (and the folders under it) are copied into Mochy when the zip is added, keeping their paths. Everything else, like loose code or text files, is ignored, apart from the signed code a `code` field names ([6.1](#61-zips-with-their-own-code)). Hidden macOS files (`__MACOSX`, `._…`) are skipped.
+- **Pictures and fonts are unpacked, nothing else.** `.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.ttf` and `.otf` files in the manifest's folder (and the folders under it) are copied into Mushy when the zip is added, keeping their paths. Everything else, like loose code or text files, is ignored, apart from the signed code a `code` field names ([6.1](#61-zips-with-their-own-code)). Hidden macOS files (`__MACOSX`, `._…`) are skipped.
 - **A zip without a `url` lives on the phone.** It never touches the network, and its page has no server to check.
 - **A zip that plays songs or lyrics needs a `url`:**
 
@@ -510,20 +510,20 @@ my-module.zip
   }
   ```
 
-  It's then added just like pasting `https://my-flac.example`: the same calls, the same quality choices. The difference is that the manifest comes from the file. Without a `url`, Mochy says the zip "doesn't say where from".
-- **Limits:** the manifest must be under 256 KB, and Mochy only looks through the first 200 entries for it. Pictures and fonts: up to 200 files, 8 MB each and 30 MB in all; a file over the limit is left out.
+  It's then added just like pasting `https://my-flac.example`: the same calls, the same quality choices. The difference is that the manifest comes from the file. Without a `url`, Mushy says the zip "doesn't say where from".
+- **Limits:** the manifest must be under 256 KB, and Mushy only looks through the first 200 entries for it. Pictures and fonts: up to 200 files, 8 MB each and 30 MB in all; a file over the limit is left out.
 - **Removing** the module deletes its unpacked pictures and fonts too.
 - **Updating:** importing a zip with the same `id` again updates the module.
-- **Backups:** modules added from a zip are kept in Mochy's backup like every other module.
+- **Backups:** modules added from a zip are kept in Mushy's backup like every other module.
 
 ### 6.1 Zips with their own code
 
-A zip can also bring a whole module written in Kotlin against `:modules:api`, the same kind as a built-in one. Mochy only runs that code when it's signed with Mochy's own key, so only Mochy's developers can make one ([section 11](#zip-modules-with-their-own-code) says how).
+A zip can also bring a whole module written in Kotlin against `:modules:api`, the same kind as a built-in one. Mushy only runs that code when it's signed with Mushy's own key, so only Mushy's developers can make one ([section 11](#zip-modules-with-their-own-code) says how).
 
 ```
 js-modules.zip
 ├── manifest.json     ← says "code": "module.apk"
-└── module.apk        ← the module's code, signed like Mochy, never installed
+└── module.apk        ← the module's code, signed like Mushy, never installed
 ```
 
 ```json
@@ -537,16 +537,16 @@ js-modules.zip
 ```
 
 - `name` and `resources` only fill in the sheet before it's added. Once it's in, the module says what it is and what it adds itself.
-- **Signed like your Mochy:** a debug Mochy takes a zip built with the debug key, a release Mochy one built with the release key. Any other zip gets "it has to be signed with the same key as your Mochy".
-- **It runs on its own copy of everything:** its own Kotlin, coroutines and libraries, in a class loader that can only see Android, Java and Mochy's bridge. Every call between the two goes across as JSON, so a different Kotlin version or Mochy's R8 can't break it.
+- **Signed like your Mushy:** a debug Mushy takes a zip built with the debug key, a release Mushy one built with the release key. Any other zip gets "it has to be signed with the same key as your Mushy".
+- **It runs on its own copy of everything:** its own Kotlin, coroutines and libraries, in a class loader that can only see Android, Java and Mushy's bridge. Every call between the two goes across as JSON, so a different Kotlin version or Mushy's R8 can't break it.
 - **Updating:** adding a newer zip with the same `id` swaps the running copy straight away. Its switch and choices stay.
 - **Removing** deletes its code and everything it kept.
 - It takes the place of a built-in module with the same `id`, the way a module app does.
-- **Backups** carry it, since its code sits in Mochy's files. It's checked again every time it's loaded.
+- **Backups** carry it, since its code sits in Mushy's files. It's checked again every time it's loaded.
 
 ### 6.2 Scripts for JS Modules
 
-**JS Modules** is a zip module that runs JavaScript scripts. It lives in its own project outside this repo (`mochy-js-modules`, next to the Mochy folder). A script exports two functions and fetches whatever it needs itself. Once JS Modules is added, add scripts on its page with **Add from a file or a link**: pick a zip, or paste a link to a zip, a script or an index. One zip can hold many scripts, and the module can hold as many as you like; every song asks them all at once.
+**JS Modules** is a zip module that runs JavaScript scripts. It lives in its own project outside this repo (`mochy-js-modules`, next to the Mushy folder). A script exports two functions and fetches whatever it needs itself. Once JS Modules is added, add scripts on its page with **Add from a file or a link**: pick a zip, or paste a link to a zip, a script or an index. One zip can hold many scripts, and the module can hold as many as you like; every song asks them all at once.
 
 **The script:**
 
@@ -632,7 +632,7 @@ with no script but a web module's `manifest.json` is added as its own module ins
 - Tapping a catalog entry still checks the real manifest and shows what it adds before anything is installed.
 - Pull requests are reviewed by hand. A module that doesn't work, describes itself wrongly, pretends to be someone else or does anything shady isn't merged.
 
-Want to share a module without the catalog? Post its link or its zip in [Mochy's Bar on Discord](https://discord.gg/NTmqVphbRY). The banner at the top of the Modules page goes there.
+Want to share a module without the catalog? Post its link or its zip in [Mushy's Bar on Discord](https://discord.gg/NTmqVphbRY). The banner at the top of the Modules page goes there.
 
 ---
 
@@ -648,7 +648,7 @@ curl -I "<the url your stream call returned>"     # should be 200 or 206, an aud
 curl "https://my-flac.example/lyrics?title=Eastside&artist=benny%20blanco&duration=173"
 ```
 
-**In Mochy**, open the module's page:
+**In Mushy**, open the module's page:
 
 - **Check server** asks for your manifest again and says whether it answered. The icon spins while it checks.
 - **Test playback** runs every step on the phone with the song that's playing (or a known one): finding the song, opening the stream, getting a license if the stream needs one, and decoding two seconds, muted. Each step says what went wrong.
@@ -664,20 +664,20 @@ adb logcat -s ModuleTest SourceModules
 
 ---
 
-## 9. How Mochy uses your module
+## 9. How Mushy uses your module
 
 ### Playing
 
 **Settings → Audio Lab → Audio Quality → Provider** is the provider order. Each song plays from the first provider that's on and has it. YouTube Music can sit anywhere in the order, or be switched off.
 
-For each song, Mochy:
+For each song, Mushy:
 
 1. Searches your module (`/search`), and picks the matching recording with its matcher.
 2. Asks for the stream (`/stream/{id}`), unless the search already gave a `streamURL`.
 3. Passes over a stream the phone can't decode, and one that's encrypted.
 4. Plays it, or moves on to the next provider.
 
-Mochy remembers a song your module doesn't have for 30 minutes, so it doesn't search for it again on every play. A module that doesn't answer is left alone for 10 minutes, then tried again.
+Mushy remembers a song your module doesn't have for 30 minutes, so it doesn't search for it again on every play. A module that doesn't answer is left alone for 10 minutes, then tried again.
 
 ### Downloading
 
@@ -695,10 +695,10 @@ Mochy remembers a song your module doesn't have for 30 minutes, so it doesn't se
 For everyone making a module:
 
 - [ ] **Use https** for every link: manifest, service and streams.
-- [ ] **Answer fast.** Mochy waits 12 seconds to connect and 20 seconds for an answer, then moves on. A slow module makes every song wait.
+- [ ] **Answer fast.** Mushy waits 12 seconds to connect and 20 seconds for an answer, then moves on. A slow module makes every song wait.
 - [ ] **Answer with JSON** in the shapes above, with `Content-Type: application/json`. Return an error status (404, 503…) when something's wrong, never a web page with 200.
 - [ ] **Keep ids stable.** The `id` you return from search must work in `/stream/{id}`, and your manifest's `id` must never change.
-- [ ] **Be honest in search results.** Real titles, every artist, real durations. A wrong duration makes Mochy pick the wrong recording or none.
+- [ ] **Be honest in search results.** Real titles, every artist, real durations. A wrong duration makes Mushy pick the wrong recording or none.
 - [ ] **No encrypted streams.** They're skipped anyway.
 - [ ] **Bump `version`** whenever you change your manifest.
 - [ ] **Never put secrets in a manifest you share.** If your link carries a personal key (some debrid services put an API key in the path), that link *is* a password. Anyone who has it can use your account. Don't post it publicly, and get a new key if you did.
@@ -707,9 +707,9 @@ For everyone making a module:
 
 ---
 
-## 11. For Mochy developers: changing the module interface
+## 11. For Mushy developers: changing the module interface
 
-This part is for people working on Mochy itself. Follow the repo's `CLAUDE.md` everywhere: one-line lowercase code comments, and text people see goes in `res/values/*.xml` (English only, never touch `values-*/`).
+This part is for people working on Mushy itself. Follow the repo's `CLAUDE.md` everywhere: one-line lowercase code comments, and text people see goes in `res/values/*.xml` (English only, never touch `values-*/`).
 
 ### Where things live
 
@@ -720,7 +720,7 @@ This part is for people working on Mochy itself. Follow the repo's `CLAUDE.md` e
 | Built-in modules | `modules/applemusic`, `modules/monochrome`, `modules/jiosaavn` |
 | The bridge to a zip's code: what crosses, the JSON, both sides | `modules/bridge` (`shared/Shared.kt`, `Wire.kt`, `ModuleSide.kt`, `BridgedModule.kt`) |
 | Checking, unpacking and starting a zip's code | `app/.../modules/code/CodeModules.kt` |
-| JS Modules: reading zips, the sandbox, asking every script | Not in this repo: its own project, `mochy-js-modules` next to the Mochy folder (`module/` and `zip/`) |
+| JS Modules: reading zips, the sandbox, asking every script | Not in this repo: its own project, `mochy-js-modules` next to the Mushy folder (`module/` and `zip/`) |
 | Every module, its switch and choices; adding from a link or a zip | `app/.../modules/ModuleRegistry.kt` |
 | Provider order, download order, and the walk down each | `app/.../modules/SourceModules.kt` |
 | Link modules (manifest + HTTP calls) | `app/.../modules/web/WebModuleManifest.kt`, `WebModule.kt` |
@@ -736,19 +736,19 @@ This part is for people working on Mochy itself. Follow the repo's `CLAUDE.md` e
 
 ### The contract and its version
 
-`:modules:api` is plain Kotlin on purpose: no Android, no Media3, no HTTP library. That way a module can be built as its own APK and loaded at runtime. It has a version, `MODULE_API_VERSION` (now `3`). A module app built for a different version is skipped with a log line, so it can't crash Mochy.
+`:modules:api` is plain Kotlin on purpose: no Android, no Media3, no HTTP library. That way a module can be built as its own APK and loaded at runtime. It has a version, `MODULE_API_VERSION` (now `3`). A module app built for a different version is skipped with a log line, so it can't crash Mushy.
 
 **When to bump `MODULE_API_VERSION`:**
 
 | Change | Bump? |
 |---|---|
 | Add a new optional interface (like `ServerListModule`) | No |
-| Add a field with a default to a class only Mochy creates (like `HttpResponse.headers`) | No |
+| Add a field with a default to a class only Mushy creates (like `HttpResponse.headers`) | No |
 | Rename, remove or change the type of anything a module calls or implements | **Yes** |
 | Add a method to an interface modules implement, even one with a default body | **Yes**, an older module app was built without it |
 | Change what a value means (units, ranges) | **Yes** |
 
-After a bump, every module app has to be rebuilt against the new `:modules:api`. Built-in modules are rebuilt with Mochy anyway.
+After a bump, every module app has to be rebuilt against the new `:modules:api`. Built-in modules are rebuilt with Mushy anyway.
 
 ### Adding a look setting
 
@@ -765,7 +765,7 @@ A look can never reach anything that isn't in `ModuleLooks.Settings`. That's the
 3. Draw it in `ModulePlayerStyle.kt` or `ModulePageScreen.kt`. Follow `CLAUDE.md`'s smoothness rules: read the playback position and anything else that changes every frame inside `drawBehind`/`graphicsLayer`, never in composition; pause any loop while the style is hidden (`rememberStyleShowing`, `LocalAppContentObscured`) and wrap it in `damageBoundary()`; use the GlassKit helpers for blur.
 4. Add a case to `app/src/test/.../modules/skin/SkinParserTest.kt`, and a row to [section 4](#4-changing-the-interface-looks-players-fonts-and-pages).
 
-An older Mochy skips a block it doesn't know, so adding one never breaks older layouts. Renaming or removing one does, so don't.
+An older Mushy skips a block it doesn't know, so adding one never breaks older layouts. Renaming or removing one does, so don't.
 
 ### Changing what a link or zip module can do
 
@@ -783,25 +783,25 @@ An older Mochy skips a block it doesn't know, so adding one never breaks older l
 
 ### Zip modules with their own code
 
-These live outside this repo, so Mochy never compiles them. `mochy-js-modules` (next to the Mochy folder) is the one to copy:
+These live outside this repo, so Mushy never compiles them. `mochy-js-modules` (next to the Mushy folder) is the one to copy:
 
-1. Its `mochy-api` and `mochy-bridge` projects compile Mochy's `modules/api` and `modules/bridge` straight from a Mochy checkout (`mochyDir` in its `gradle.properties`), so the zip always matches the Mochy it's for.
+1. Its `mochy-api` and `mochy-bridge` projects compile Mushy's `modules/api` and `modules/bridge` straight from a Mushy checkout (`mochyDir` in its `gradle.properties`), so the zip always matches the Mushy it's for.
 2. `module/` is the module, written like a built-in one against the api, with a no-argument constructor.
 3. `zip/` is an Android app build that depends on `:module` and `:mochy-bridge`, with a manifest whose `<meta-data android:name="com.mochyy.mochymusic.module.entry">` names the module class, and a `manifest.json` with `"code": "module.apk"`.
-4. `./gradlew :zip:moduleZipDebug` makes the zip for a debug Mochy, `:zip:moduleZipRelease` (with the release key's environment set) the one for a release Mochy. It lands in `zip/build/outputs/module/`.
+4. `./gradlew :zip:moduleZipDebug` makes the zip for a debug Mushy, `:zip:moduleZipRelease` (with the release key's environment set) the one for a release Mushy. It lands in `zip/build/outputs/module/`.
 
-Keep R8 off in the packing project: Mochy makes `ModuleSide` and your module class by name. Only `com.mochyy.mochymusic.module.bridge.shared` crosses between Mochy's class loader and the module's. It's kept by name in Mochy's R8 rules, and changing it means bumping `MODULE_API_VERSION`.
+Keep R8 off in the packing project: Mushy makes `ModuleSide` and your module class by name. Only `com.mochyy.mochymusic.module.bridge.shared` crosses between Mushy's class loader and the module's. It's kept by name in Mushy's R8 rules, and changing it means bumping `MODULE_API_VERSION`.
 
 ### Module apps
 
-A module app is an APK whose code runs inside Mochy. It needs:
+A module app is an APK whose code runs inside Mushy. It needs:
 
 - a `<service>` answering the intent `com.mochyy.mochymusic.SOURCE_MODULE`
 - `<meta-data android:name="com.mochyy.mochymusic.module.entry" android:value="your.module.EntryClass" />` on that service
 - an entry class with a no-argument constructor that implements `MushyModule`
-- to be **signed with Mochy's own key**, and built for the same `MODULE_API_VERSION`
+- to be **signed with Mushy's own key**, and built for the same `MODULE_API_VERSION`
 
-Build against `:modules:api` as `compileOnly`, since Mochy already has those classes. A module app replaces the built-in module with the same id, so a built-in module can be updated on its own.
+Build against `:modules:api` as `compileOnly`, since Mushy already has those classes. A module app replaces the built-in module with the same id, so a built-in module can be updated on its own.
 
 ### Checking your change
 
@@ -814,17 +814,17 @@ Build against `:modules:api` as `compileOnly`, since Mochy already has those cla
 
 | What you see | Why, and what to do |
 |---|---|
-| "That's a website, not a module" | You pasted a website. Mochy needs a module's link or its `manifest.json`. A Monochrome site goes on Monochrome's page under **Servers**. |
-| "That link answered, but it isn't a module Mochy can use" | The manifest has no `id` and no `name`, isn't valid JSON, or adds nothing. |
+| "That's a website, not a module" | You pasted a website. Mushy needs a module's link or its `manifest.json`. A Monochrome site goes on Monochrome's page under **Servers**. |
+| "That link answered, but it isn't a module Mushy can use" | The manifest has no `id` and no `name`, isn't valid JSON, or adds nothing. |
 | "That file isn't a module" | The zip has no `manifest.json` at its root or one folder in, or isn't a zip. |
 | "…its .zip doesn't say where from" | Your zip lists `search`, `stream` or `lyrics` but has no `url`. |
-| "…it has to be signed with the same key as your Mochy" | The zip's code was built with another key, like a debug zip on a release Mochy. Build it with the same build type and key as the Mochy it's for. |
+| "…it has to be signed with the same key as your Mushy" | The zip's code was built with another key, like a debug zip on a release Mushy. Build it with the same build type and key as the Mushy it's for. |
 | "This module's code didn't start" | It was built for another `MODULE_API_VERSION`, or its `module.apk` has no entry `meta-data`. `adb logcat -s CodeModules` says which. |
 | The test finds the song but it never plays from your module | Check the stream call with `curl -I`: it must give audio (200 or 206), not a web page or an error. Check that the codec and sample rate are ones the phone can decode. |
 | Songs come from YouTube instead | Your module is below YouTube in the provider order, it's switched off, or it was skipped for 10 minutes after not answering. `adb logcat -s SourceModules` says which. |
 | Downloads don't use your module | Check the **download order**, not the provider order. Also, an HLS/DASH stream can't be downloaded: give one whole file. |
 | The look didn't change something | The key isn't in [section 4.1](#41-look-settings), the value is out of range, or the user changed that setting by hand. |
-| My player doesn't show up | Your look has to be **on**. `player` needs at least one block Mochy knows. Then hold the player: your style is the first in the selector. |
+| My player doesn't show up | Your look has to be **on**. `player` needs at least one block Mushy knows. Then hold the player: your style is the first in the selector. |
 | A block is missing from my player | Its `type` is misspelled or unknown, so it was skipped. Check the tables in [4.2](#42-a-player-of-your-own). |
 | My picture doesn't show | The path is relative to `manifest.json` and case-sensitive, and the file must be `.png`, `.jpg`, `.webp` or `.gif` under 8 MB. For a link module, the picture must be reachable next to the manifest. |
 | My font isn't used | Fonts only work from a zip, as `.ttf` or `.otf`, and the `regular` path must point at the file. A broken font is skipped. |

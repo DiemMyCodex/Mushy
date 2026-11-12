@@ -54,7 +54,7 @@ val SwipeLeftActionKey = stringPreferencesKey("swipeLeftAction")
 
 // the top layout of the home tab, picked in customisation settings
 enum class HomeStyle(val displayName: String) {
-    MOCHYY("Mochyy"),
+    MOCHYY("Mushy"),
     LISTEN_NOW("Listen now"),
     HOP_IN("Hop in"),
 }
@@ -134,7 +134,7 @@ val SelectedYtmPlaylistsKey = stringPreferencesKey("selectedYtmPlaylists")
 val YtSyncNewPlaylistsKey = booleanPreferencesKey("ytSyncNewPlaylists")
 /** Plays long enough to count go to the signed-in account's YouTube history. */
 val YtReportPlaysKey = booleanPreferencesKey("ytReportPlays")
-/** YouTube Music history is copied into Mochy's own listening history. */
+/** YouTube Music history is copied into Mushy's own listening history. */
 val YtPullHistoryKey = booleanPreferencesKey("ytPullHistory")
 /** Newest YouTube history entry already copied, so the next pull stops there. */
 val YtHistoryLastSeenKey = stringPreferencesKey("ytHistoryLastSeen")
@@ -290,14 +290,14 @@ val PauseListenHistoryKey = booleanPreferencesKey("pauseListenHistory")
 val PauseSearchHistoryKey = booleanPreferencesKey("pauseSearchHistory")
 val DisableScreenshotKey = booleanPreferencesKey("disableScreenshot")
 
-// Discord: signed in on Discord's own page in the browser (OAuth), so Mochy only ever holds a
+// Discord: signed in on Discord's own page in the browser (OAuth), so Mushy only ever holds a
 // token Discord gave it for this, never the account's password or login token
 val DiscordAccessTokenKey = stringPreferencesKey("discordAccessToken")
 val DiscordRefreshTokenKey = stringPreferencesKey("discordRefreshToken")
 val DiscordTokenExpiresAtKey = longPreferencesKey("discordTokenExpiresAt")
 /** the signed-in account's name, picture, banner and bio, as JSON, for the profile preview */
 val DiscordProfileKey = stringPreferencesKey("discordProfile")
-/** a login started in the browser, kept on disk in case Android closes Mochy meanwhile */
+/** a login started in the browser, kept on disk in case Android closes Mushy meanwhile */
 val DiscordLoginStateKey = stringPreferencesKey("discordLoginState")
 val DiscordLoginVerifierKey = stringPreferencesKey("discordLoginVerifier")
 

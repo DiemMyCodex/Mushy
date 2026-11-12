@@ -1,5 +1,5 @@
 // The Monochrome source module: lossless FLAC from Monochrome's track streamer. Built into
-// Mochy for now; written against :modules:api only, so it can later ship as its own APK.
+// Mushy for now; written against :modules:api only, so it can later ship as its own APK.
 plugins {
     alias(libs.plugins.kotlin.serialization)
     id("kotlin")

@@ -60,62 +60,7 @@ private const val AppOpenSettleMs = 2_000L
 /** place once inside PopupSheetHost's content, enabled = false (setup wizard still up) holds everything */
 @Composable
 fun DonatePromptScheduler(enabled: Boolean) {
-    val context = LocalContext.current
-    val playerConnection = LocalPlayerConnection.current
-    val lifecycle = LocalLifecycleOwner.current.lifecycle
-    val sheet = LocalZoomOutOverlayState.current
-    val otherSheets = listOf(LocalMenuState.current, LocalBottomSheetPageState.current)
-    val isEnabled by rememberUpdatedState(enabled)
-
-    // every time the app comes to the front counts as an open, leaving within the settle time cancels it
-    LaunchedEffect(lifecycle) {
-        // the ask is already used up once decided, so it waits out here where a pause or leaving can't cancel it
-        val ask = { launch { showWhenFree(lifecycle, sheet, otherSheets) } }
-        lifecycle.currentStateFlow
-            .map { it.isAtLeast(Lifecycle.State.RESUMED) }
-            .distinctUntilChanged()
-            .collectLatest { onScreen ->
-                if (!onScreen) return@collectLatest
-                delay(AppOpenSettleMs)
-                if (isEnabled && onAppOpened(context.dataStore, System.currentTimeMillis())) ask()
-            }
-    }
-
-    if (playerConnection == null) return
-    LaunchedEffect(playerConnection) {
-        val ask = { launch { showWhenFree(lifecycle, sheet, otherSheets) } }
-        val dataStore = context.dataStore
-        var newUserDone = dataStore.data.first()[DonateFirstPromptShownKey] == true
-        var lastCountedId: String? = null
-
-        combine(playerConnection.mediaMetadata, playerConnection.isPlaying) { metadata, playing ->
-            metadata?.id.takeIf { playing }
-        }.collectLatest { playingId ->
-            // restarts on every pause and track change, so only an unbroken stretch of play counts
-            if (playingId == null) return@collectLatest
-            var playedMs = 0L
-            while (!newUserDone || playingId != lastCountedId) {
-                delay(PlaytimeStepMs)
-                playedMs += PlaytimeStepMs
-                if (!isEnabled) continue
-                val now = System.currentTimeMillis()
-
-                if (!newUserDone) {
-                    if (addPlaytime(dataStore, now, PlaytimeStepMs)) {
-                        newUserDone = true
-                        // this song already got its ask, it shouldn't also count toward a random one
-                        lastCountedId = playingId
-                        ask()
-                    }
-                    continue
-                }
-
-                if (playedMs < ListenThresholdMs) continue
-                lastCountedId = playingId
-                if (onSongListened(dataStore, now)) ask()
-            }
-        }
-    }
+    // Disabled permanently: eliminated popup while listening to music
 }
 
 // waits until the app is on screen and no other sheet is up, then asks

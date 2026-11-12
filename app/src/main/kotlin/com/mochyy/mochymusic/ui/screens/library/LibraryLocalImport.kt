@@ -1,6 +1,6 @@
 // LibraryLocalImport.kt
 //
-// Bringing music in from the phone, from the Library's Local tab. With storage access, Mochy
+// Bringing music in from the phone, from the Library's Local tab. With storage access, Mushy
 // lists every song on the phone in the Add music sheet; without it, the system file picker lets
 // the user choose files by hand. Either way the import runs in LocalImportService and its progress
 // sheet opens straight away.
@@ -45,7 +45,7 @@ private val LocalAudioMimeTypes = arrayOf(
 /** The Local tab's ways in, as one handle. */
 @Stable
 class LocalImportActions internal constructor(hasStorageAccess: Boolean) {
-    /** Mochy may read the phone's music; until then the tab offers to ask. */
+    /** Mushy may read the phone's music; until then the tab offers to ask. */
     var hasStorageAccess by mutableStateOf(hasStorageAccess)
         internal set
 
@@ -55,7 +55,7 @@ class LocalImportActions internal constructor(hasStorageAccess: Boolean) {
     internal var pickFolderLauncher: () -> Unit = {}
     internal var refreshThenScan: () -> Unit = {}
 
-    /** The import card: the songs found on the phone when Mochy may look, the file picker otherwise. */
+    /** The import card: the songs found on the phone when Mushy may look, the file picker otherwise. */
     fun importFromPhone() = if (hasStorageAccess) openAddMusic() else pickFiles()
 
     /** The storage card: asks for access first if needed, then lists what's on the phone. */
@@ -104,7 +104,7 @@ fun rememberLocalImportActions(viewModel: LibraryImportViewModel): LocalImportAc
         } else {
             // a second "no" stops Android asking at all, so point to where it can still be turned on
             TopToaster.show(
-                text = "Mochy can't see your music without access",
+                text = "Mushy can't see your music without access",
                 iconRes = R.drawable.storage,
                 actionLabel = "Settings",
                 onAction = {

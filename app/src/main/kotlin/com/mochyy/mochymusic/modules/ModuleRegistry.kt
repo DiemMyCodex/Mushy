@@ -242,7 +242,7 @@ class ModuleRegistry @Inject constructor(
     // a zip that brings its own code: checked to be signed like mochy now, so the sheet can say so before anything is added
     private fun checkCode(uri: Uri, text: String, root: String, manifest: WebModuleManifest, code: String): LinkCheck {
         val apk = CodeModules.extract(context, uri, root + code.trimStart('/')) ?: return LinkCheck.NotAModule
-        if (!CodeModules.signedLikeMochy(context, apk)) return LinkCheck.NotSigned
+        if (!CodeModules.signedLikeMushy(context, apk)) return LinkCheck.NotSigned
         val adds = buildSet {
             if (manifest.playsSongs) add(ModuleFeature.AudioSource)
             if (manifest.hasLyrics) add(ModuleFeature.Lyrics)
@@ -465,7 +465,7 @@ class ModuleRegistry @Inject constructor(
             val entry = service.metaData?.getString(EntryMetaKey) ?: return@mapNotNull null
             // its code runs inside mochy, so only an app signed with mochy's own key is let in
             if (pm.checkSignatures(context.packageName, pkg) != PackageManager.SIGNATURE_MATCH) {
-                Timber.tag(Tag).w("Skipping module $pkg: not signed like Mochy")
+                Timber.tag(Tag).w("Skipping module $pkg: not signed like Mushy")
                 return@mapNotNull null
             }
             runCatching {
@@ -473,7 +473,7 @@ class ModuleRegistry @Inject constructor(
                 val loader = PathClassLoader(app.sourceDir, app.nativeLibraryDir, javaClass.classLoader)
                 val module = loader.loadClass(entry).getDeclaredConstructor().newInstance() as MushyModule
                 if (module.info.apiVersion != MODULE_API_VERSION) {
-                    Timber.tag(Tag).w("Skipping module $pkg: built for API ${module.info.apiVersion}, Mochy has $MODULE_API_VERSION")
+                    Timber.tag(Tag).w("Skipping module $pkg: built for API ${module.info.apiVersion}, Mushy has $MODULE_API_VERSION")
                     null
                 } else module to ModuleOrigin.App(pkg)
             }.onFailure { Timber.tag(Tag).w(it, "Couldn't load module $pkg") }.getOrNull()

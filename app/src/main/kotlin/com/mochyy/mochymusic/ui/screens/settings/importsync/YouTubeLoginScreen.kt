@@ -104,7 +104,7 @@ fun YouTubeLoginScreen(navController: NavController) {
             Column(modifier = Modifier.weight(1f)) {
                 Text("Sign in to YouTube", style = MaterialTheme.typography.titleLarge, color = Color.White)
                 Text(
-                    "Google's own sign-in page. Mochy never sees your password.",
+                    "Google's own sign-in page. Mushy never sees your password.",
                     style = MaterialTheme.typography.bodySmall,
                     color = Color.White.copy(alpha = 0.6f),
                 )

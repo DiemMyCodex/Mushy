@@ -123,7 +123,7 @@ internal fun ImportModePage(
             OnbChoiceCard(
                 icon = painterResource(R.drawable.backup),
                 title = "Import from backup",
-                description = "if you by any chance have a Mochy backup",
+                description = "if you by any chance have a Mushy backup",
                 onClick = onBackup,
             )
             if (backupError != null) {
@@ -143,7 +143,7 @@ internal fun RestoringPage(step: TransferStep, manifest: TransferManifest?) {
         badge = { PageBadge(painterResource(if (done) R.drawable.check else R.drawable.restore)) },
         title = if (done) "All set!" else "Bringing your music over",
         subtitle = when {
-            done -> "Mochy restarts once to finish. See you in a sec!"
+            done -> "Mushy restarts once to finish. See you in a sec!"
             manifest != null -> "${countOf(manifest.songs, "song")}, ${countOf(manifest.playlists, "playlist")} and " +
                 "${countOf(manifest.plays, "play")} from your old app."
             else -> "Reading your export…"
@@ -160,7 +160,7 @@ internal fun RestoringPage(step: TransferStep, manifest: TransferManifest?) {
                     .clip(CircleShape),
             )
             Text(
-                if (done) "Restarting…" else "${(progress * 100).toInt()}% · keep Mochy open, it restarts by itself when it's done",
+                if (done) "Restarting…" else "${(progress * 100).toInt()}% · keep Mushy open, it restarts by itself when it's done",
                 color = Onb.Subtitle,
                 fontSize = 13.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -409,7 +409,7 @@ internal fun SyncOptionsPage(
     OnboardingPage(
         badge = { ProviderSquircle(AccountService.YOUTUBE_MUSIC, size = 40.dp) },
         title = "Also keep in sync?",
-        subtitle = "YouTube Music can stay in step with Mochy: your playlists, likes and history, both ways.",
+        subtitle = "YouTube Music can stay in step with Mushy: your playlists, likes and history, both ways.",
         footer = {
             if (reading != null) {
                 Text(
@@ -430,7 +430,7 @@ internal fun SyncOptionsPage(
         Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             OnbToggleCard(
                 title = "Sync library on launch",
-                description = "Likes, library and the playlists you picked, each time Mochy opens",
+                description = "Likes, library and the playlists you picked, each time Mushy opens",
                 checked = choices.syncOnLaunch,
                 onCheckedChange = { onChange(choices.copy(syncOnLaunch = it)) },
             )
@@ -448,7 +448,7 @@ internal fun SyncOptionsPage(
             )
             OnbToggleCard(
                 title = "Bring YouTube history here",
-                description = "Plays from your other devices join Mochy's history",
+                description = "Plays from your other devices join Mushy's history",
                 checked = choices.copyHistory,
                 onCheckedChange = { onChange(choices.copy(copyHistory = it)) },
             )
@@ -473,7 +473,7 @@ internal fun ProfilePage(
         title = "Let's create your profile!",
         footer = {
             Text(
-                "Mochy will never store your data online!",
+                "Mushy will never store your data online!",
                 color = Onb.Faint,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,

@@ -161,7 +161,7 @@ open class BridgedModule private constructor(private val bridge: ModuleBridge, a
         fun open(bridge: ModuleBridge, entry: String): BridgedModule {
             val about = Wire.aboutFrom(Wire.objectOf(bridge.open(entry)))
             val version = about.info.apiVersion
-            if (version != MODULE_API_VERSION) throw IOException("It's made for module API $version, this Mochy has $MODULE_API_VERSION")
+            if (version != MODULE_API_VERSION) throw IOException("It's made for module API $version, this Mushy has $MODULE_API_VERSION")
             if (about.info.id.isBlank()) throw IOException("It doesn't say what it is")
             return when {
                 about.servers && about.items -> WithBoth(bridge, about)

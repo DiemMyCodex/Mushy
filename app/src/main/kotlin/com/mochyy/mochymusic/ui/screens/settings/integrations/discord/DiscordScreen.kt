@@ -166,10 +166,10 @@ private fun statusLine(
     connection: PresenceConnection,
     login: DiscordLogin,
 ): String = when {
-    !configured -> "Not set up in this build of Mochy"
+    !configured -> "Not set up in this build of Mushy"
     login == DiscordLogin.Finishing -> "Signing in…"
     !signedIn -> "Log in below to turn it on"
-    !enabled -> "Off, so your profile shows nothing from Mochy"
+    !enabled -> "Off, so your profile shows nothing from Mushy"
     connection == PresenceConnection.Live -> "On your profile now"
     connection == PresenceConnection.Connecting -> "Connecting to Discord…"
     connection == PresenceConnection.Retrying -> "Can't reach Discord. Trying again…"
@@ -263,7 +263,7 @@ private fun CustomizeSection(
         )
     }
     Spacer(gap)
-    DiscordTextCard("Activity name", settings.name, { text -> edit { copy(name = text) } }, hint = "Mochy")
+    DiscordTextCard("Activity name", settings.name, { text -> edit { copy(name = text) } }, hint = "Mushy")
 
     DiscordSectionTitle("Strings customisation")
     DiscordNoticeCard("Empty a box to hide that line")

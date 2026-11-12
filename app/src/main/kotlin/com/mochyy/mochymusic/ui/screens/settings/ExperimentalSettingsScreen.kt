@@ -154,7 +154,7 @@ fun ExperimentalSettingsScreen(navController: NavController) {
                             title = { Text("Force show monthly recap") },
                             highlightKey = "Force show monthly recap",
                             descriptionText = "Unlock the recap early",
-                            detail = "Unlock the recap behind the Mochy card now, before the 3rd or 10 songs",
+                            detail = "Unlock the recap behind the Mushy card now, before the 3rd or 10 songs",
                             icon = painterResource(R.drawable.history),
                             iconShape = androidx.compose.foundation.shape.CircleShape,
                             onClick = { onForceRecapChange(!forceRecap) },

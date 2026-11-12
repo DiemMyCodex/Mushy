@@ -61,7 +61,7 @@ import timber.log.Timber
 import com.mochyy.mochymusic.ui.utils.stableStatusBarsPadding
 
 /** the page-side name of CaptureBridge, scripts the app runs in the page report through it too */
-internal const val BRIDGE_NAME = "MochyCapture"
+internal const val BRIDGE_NAME = "MushyCapture"
 
 /** headers the web players send with their session: the token itself and spotify's client details */
 private val SESSION_HEADERS = setOf("authorization", "media-user-token", "client-token", "app-platform", "spotify-app-version")

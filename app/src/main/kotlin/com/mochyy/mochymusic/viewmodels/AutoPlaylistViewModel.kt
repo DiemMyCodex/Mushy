@@ -41,7 +41,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/** Liked songs that came from one place; [source] null is the ones liked here in Mochy. */
+/** Liked songs that came from one place; [source] null is the ones liked here in Mushy. */
 data class LikedSourceSection(val source: ImportSource?, val songs: List<Song>)
 
 data class AutoPlaylistSongs(

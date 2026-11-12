@@ -473,6 +473,6 @@ constructor(
     }
 
     private companion object {
-        const val LOG_TAG = "MochyDownload"
+        const val LOG_TAG = "MushyDownload"
     }
 }

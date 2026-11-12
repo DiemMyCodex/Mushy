@@ -10,7 +10,7 @@ struct RootView: View {
             Color(red: 0.1, green: 0.1, blue: 0.1).ignoresSafeArea()
 
             VStack(spacing: 16) {
-                Text("Mochy")
+                Text("Mushy")
                     .font(.largeTitle.bold())
                 Text("It works! The real app will grow from here.")
                     .foregroundStyle(.secondary)

@@ -74,7 +74,7 @@ data class CsvExportRow(
     val thumbnailUrl: String?,
 )
 
-fun writeMochyCsv(rows: List<CsvExportRow>): String = buildString {
+fun writeMushyCsv(rows: List<CsvExportRow>): String = buildString {
     appendCsvLine(listOf("Type", "Playlist name", "Track name", "Artist name", "Album", "Duration (ms)", "Video ID", "Thumbnail"))
     for (row in rows) {
         appendCsvLine(

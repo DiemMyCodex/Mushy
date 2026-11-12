@@ -140,7 +140,7 @@ private fun resamplerCard(input: StatsInput): StatCard {
 private fun mochyResamplerCard(d: StreamDetails, effects: EffectsSnapshot): StatCard = StatCard(
     title = "Resampler",
     lines = listOfNotNull(
-        "Type" to "Mochy hi-fi, windowed sinc (Kaiser)",
+        "Type" to "Mushy hi-fi, windowed sinc (Kaiser)",
         "I/O rate" to "${kHz(d.resampledFrom!!)} → ${kHz(d.resampledTo!!)}",
         d.resamplerPassbandHz?.let { "Passband" to "flat to ${kHz(it.toInt())}" },
         "Cutoff" to kHz(minOf(d.resampledFrom, d.resampledTo) / 2),

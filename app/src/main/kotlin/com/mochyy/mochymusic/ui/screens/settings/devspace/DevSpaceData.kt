@@ -120,7 +120,7 @@ object DevSpaceRepository {
         c.connectTimeout = 8000
         c.readTimeout = 10000
         c.setRequestProperty("Accept", "application/vnd.github+json")
-        c.setRequestProperty("User-Agent", "Mochy")
+        c.setRequestProperty("User-Agent", "Mushy")
         try {
             val code = c.responseCode
             if (code == 403 || code == 429) throw RateLimited()

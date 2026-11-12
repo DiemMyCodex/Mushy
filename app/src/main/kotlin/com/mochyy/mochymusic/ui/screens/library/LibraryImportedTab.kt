@@ -2,7 +2,7 @@
 //
 // The Library's Imported tab: the import banner, then what each service brought in, as songs
 // (All music), as playlists and as albums, and Manage imports at the bottom. Songs YouTube sync keeps up to
-// date count under YouTube here, apart from the songs liked in Mochy itself.
+// date count under YouTube here, apart from the songs liked in Mushy itself.
 
 package com.mochyy.mochymusic.ui.screens.library
 

@@ -62,7 +62,7 @@ object Paxsenix {
 
                 defaultRequest {
                     url("https://lyrics.paxsenix.org")
-                    header("User-Agent", "Mochy/$appVersion")
+                    header("User-Agent", "Mushy/$appVersion")
                 }
 
                 expectSuccess = true

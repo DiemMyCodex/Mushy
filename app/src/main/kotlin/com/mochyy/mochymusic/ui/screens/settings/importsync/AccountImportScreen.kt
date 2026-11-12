@@ -216,9 +216,9 @@ fun AccountImportScreen(
         AccountImportState.SigningIn -> CaptureWebView(
             title = "Sign in to ${service.label}",
             subtitle = if (viewModel.isResync) {
-                "On ${service.label}'s own page. Mochy only reads the playlist you're re-syncing"
+                "On ${service.label}'s own page. Mushy only reads the playlist you're re-syncing"
             } else {
-                "On ${service.label}'s own page. Mochy only reads your playlists"
+                "On ${service.label}'s own page. Mushy only reads your playlists"
             },
             startUrl = service.loginUrl.orEmpty(),
             playerOrigins = service.playerOrigins,

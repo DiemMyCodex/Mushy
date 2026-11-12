@@ -56,7 +56,7 @@ extensions.configure<ApplicationExtension> {
         buildConfigField("String", "LIBREFM_API_KEY", "\"$libreFmKey\"")
         buildConfigField("String", "LIBREFM_SECRET", "\"$libreFmSecret\"")
 
-        // The Discord app Mochy signs in through (Developer Portal → your app → Application ID).
+        // The Discord app Mushy signs in through (Developer Portal → your app → Application ID).
         // Discord sends the login back to discord-<id>:/authorize/callback, so the manifest needs it too.
         // Without one, the Discord page says so instead of opening a login that can't come back.
         val discordClientId = localProperties.getProperty("DISCORD_CLIENT_ID")

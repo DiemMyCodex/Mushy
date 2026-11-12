@@ -73,7 +73,7 @@ internal fun TransferSection(viewModel: TransferViewModel = hiltViewModel()) {
             label = "Export everything",
             detail = when (val step = export) {
                 is TransferStep.Working -> step.progress?.let { "Exporting… ${(it * 100).toInt()}%" } ?: "Exporting…"
-                TransferStep.Done -> "Exported! Import the .zip in Mochy on the other phone"
+                TransferStep.Done -> "Exported! Import the .zip in Mushy on the other phone"
                 is TransferStep.Failed -> step.message
                 TransferStep.Idle -> "Library, history, downloads and settings in one .zip, without logins"
             },
@@ -83,7 +83,7 @@ internal fun TransferSection(viewModel: TransferViewModel = hiltViewModel()) {
         StorageActionButton(
             label = "Import everything",
             detail = when (val step = import) {
-                is TransferStep.Working -> step.progress?.let { "Importing… ${(it * 100).toInt()}%, Mochy restarts when it's done" } ?: "Importing…"
+                is TransferStep.Working -> step.progress?.let { "Importing… ${(it * 100).toInt()}%, Mushy restarts when it's done" } ?: "Importing…"
                 TransferStep.Done -> "Done, restarting…"
                 is TransferStep.Failed -> step.message
                 TransferStep.Idle -> checkError ?: "Bring back a .zip made with Export everything"
@@ -93,8 +93,8 @@ internal fun TransferSection(viewModel: TransferViewModel = hiltViewModel()) {
             onClick = {
                 menuState.showConfirm(
                     title = "Replace your library?",
-                    message = "Everything in Mochy right now is replaced by what's in the export: library, history, " +
-                        "downloads and settings. Your logins stay as they are. Mochy restarts once to finish.",
+                    message = "Everything in Mushy right now is replaced by what's in the export: library, history, " +
+                        "downloads and settings. Your logins stay as they are. Mushy restarts once to finish.",
                     action = "Pick the .zip",
                     onConfirm = {
                         viewModel.clearImport()

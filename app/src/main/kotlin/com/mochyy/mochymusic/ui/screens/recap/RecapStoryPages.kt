@@ -200,7 +200,7 @@ private fun JourneyPage(s: StoryState, data: RecapStoryData, time: RecapTime) {
             .at(0f, av[1] + av[2] / 2f + geo.dp(44f))
             .padding(horizontal = 36.dp),
     ) {
-        Text("${data.name} you started your journey in Mochy on", style = recapBold(22f), modifier = Modifier.lineMotion(anim, 0, n, drag = drag))
+        Text("${data.name} you started your journey in Mushy on", style = recapBold(22f), modifier = Modifier.lineMotion(anim, 0, n, drag = drag))
         Spacer(Modifier.height(4.dp))
         OdometerText(
             text = DateLong.format(data.joinedDate),

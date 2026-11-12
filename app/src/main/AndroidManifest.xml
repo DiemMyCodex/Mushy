@@ -22,7 +22,7 @@
     <!-- Optional: If you also need to scan for Bluetooth devices -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
 
-    <!-- Library > Local: lets Mochy find the songs already on the phone. Android 13 has its own
+    <!-- Library > Local: lets Mushy find the songs already on the phone. Android 13 has its own
          audio permission; older phones need the general storage one. -->
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />

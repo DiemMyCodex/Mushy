@@ -4,7 +4,7 @@ package com.mochyy.mochymusic.discord
 
 /** The words the user can drop into any status line or button, and Discord's length rules. */
 object PresenceText {
-    const val AppName = "Mochy"
+    const val AppName = "Mushy"
 
     /** the placeholder, and what it means, in the order the Discord page lists them */
     val Placeholders = listOf(

@@ -1,4 +1,4 @@
-// MochyLyrics.kt
+// MushyLyrics.kt
 
 package com.mochyy.mochymusic.ui.component
 

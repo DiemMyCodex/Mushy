@@ -44,8 +44,8 @@ internal object CodeModules {
     }
 
     /** true when the apk is signed with exactly the keys this copy of mochy is signed with */
-    fun signedLikeMochy(context: Context, apk: File): Boolean =
-        signedLikeMochy(context, context.packageManager.getPackageArchiveInfo(apk.path, SignatureFlags))
+    fun signedLikeMushy(context: Context, apk: File): Boolean =
+        signedLikeMushy(context, context.packageManager.getPackageArchiveInfo(apk.path, SignatureFlags))
 
     /** puts a checked apk in place under [key] and starts it; null when its code can't run in this mochy */
     fun install(context: Context, key: String, apk: File): Loaded? {
@@ -70,8 +70,8 @@ internal object CodeModules {
         // android 14 refuses to load code from a file the app could still write to
         apk.setReadOnly()
         val info = context.packageManager.getPackageArchiveInfo(apk.path, SignatureFlags or PackageManager.GET_META_DATA)
-        if (!signedLikeMochy(context, info)) {
-            Timber.tag(Tag).w("Skipping the module in $folder: not signed like Mochy")
+        if (!signedLikeMushy(context, info)) {
+            Timber.tag(Tag).w("Skipping the module in $folder: not signed like Mushy")
             return null
         }
         val entry = info?.applicationInfo?.metaData?.getString(ModuleRegistry.EntryMetaKey) ?: return null
@@ -98,7 +98,7 @@ internal object CodeModules {
 
     private fun safe(key: String) = key.lowercase().replace(Regex("[^a-z0-9._-]"), "-").ifBlank { "module" }
 
-    private fun signedLikeMochy(context: Context, theirs: PackageInfo?): Boolean {
+    private fun signedLikeMushy(context: Context, theirs: PackageInfo?): Boolean {
         val own = signers(context.packageManager.getPackageInfo(context.packageName, SignatureFlags))
         return own.isNotEmpty() && own == signers(theirs)
     }

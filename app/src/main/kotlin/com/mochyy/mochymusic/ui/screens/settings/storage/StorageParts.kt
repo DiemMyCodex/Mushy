@@ -66,7 +66,7 @@ internal val StorageTrack = Color(0xFF3A3A3C)
 internal val StorageMuted = Color(0xFF8E8E93)
 internal val StorageDanger = Color(0xFFF07A70)
 
-internal val MochyGreen = Color(0xFF86EF7F)
+internal val MushyGreen = Color(0xFF86EF7F)
 internal val OthersGrey = Color(0xFF6E6E73)
 internal val CacheOrange = Color(0xFFF5B26B)
 internal val DatabaseRed = Color(0xFFEE6E5E)

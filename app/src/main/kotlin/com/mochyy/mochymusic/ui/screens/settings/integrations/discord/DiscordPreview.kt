@@ -348,7 +348,7 @@ private fun PictureView(picture: PresencePicture) {
         PresencePicture.Logo -> Box(fill.background(Color(0xFF1A1A1A))) {
             Image(
                 painter = painterResource(R.drawable.ic_launcher_mark),
-                contentDescription = "Mochy",
+                contentDescription = "Mushy",
                 contentScale = ContentScale.Crop,
                 // the launcher picture has a safe margin around it, the github copy is cropped the same
                 modifier = fill.graphicsLayer {

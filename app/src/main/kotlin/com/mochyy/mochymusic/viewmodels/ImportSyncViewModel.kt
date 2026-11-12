@@ -75,7 +75,7 @@ class ImportSyncViewModel @Inject constructor(
         }
     }
 
-    /** [sourceLabel] is only for the review dialog ("Mochy backup", "TuneMyMusic"). */
+    /** [sourceLabel] is only for the review dialog ("Mushy backup", "TuneMyMusic"). */
     fun loadFile(uri: Uri, sourceLabel: String) {
         loadJob?.cancel()
         _pending.value = PendingImport.Loading("Reading the file…")

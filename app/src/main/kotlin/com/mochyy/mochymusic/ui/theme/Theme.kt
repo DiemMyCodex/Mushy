@@ -27,7 +27,7 @@ import com.materialkolor.score.Score
 val DefaultThemeColor = Color(0xFF8E8E8E)
 
 /**
- * mochy renders dark-only.
+ * mushy renders dark-only.
  *
  * The light palette was never finished - large parts of the UI hardcode white text and dark
  * glass - so on a light-mode phone the app looked broken rather than light. Pinned here as one
@@ -35,8 +35,16 @@ val DefaultThemeColor = Color(0xFF8E8E8E)
  */
 const val ForceDarkTheme = true
 
+@Deprecated("Use MushyTheme", ReplaceWith("MushyTheme(darkTheme, pureBlack, content)"))
 @Composable
 fun MochyTheme(
+    darkTheme: Boolean = ForceDarkTheme,
+    pureBlack: Boolean = false,
+    content: @Composable () -> Unit,
+) = MushyTheme(darkTheme, pureBlack, content)
+
+@Composable
+fun MushyTheme(
     darkTheme: Boolean = ForceDarkTheme,
     pureBlack: Boolean = false,
     content: @Composable () -> Unit,

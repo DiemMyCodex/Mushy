@@ -67,8 +67,8 @@ fun StorageScreen(navController: NavController, viewModel: StorageViewModel = hi
 
         Spacer(Modifier.height(22.dp))
         Text(
-            usage?.let { "Mochy uses ${percentOf(it.mochy, it.deviceTotal)} of your storage (${formatSize(it.mochy)}), which is split into" }
-                ?: "Working out how much room Mochy takes…",
+            usage?.let { "Mushy uses ${percentOf(it.mushy, it.deviceTotal)} of your storage (${formatSize(it.mushy)}), which is split into" }
+                ?: "Working out how much room Mushy takes…",
             style = storageText(17f, FontWeight.SemiBold),
             modifier = Modifier.padding(horizontal = 2.dp),
         )
@@ -155,16 +155,16 @@ private fun OverallCard(usage: StorageUsage?) {
         Spacer(Modifier.height(14.dp))
         UsageBar(
             parts = listOf(
-                BarPart(MochyGreen, usage?.mochy ?: 0),
+                BarPart(MushyGreen, usage?.mushy ?: 0),
                 BarPart(OthersGrey, usage?.othersUsed ?: 0),
             ),
             total = usage?.deviceTotal ?: 0,
         )
         Spacer(Modifier.height(14.dp))
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-            LegendSwatch(MochyGreen)
+            LegendSwatch(MushyGreen)
             Spacer(Modifier.width(8.dp))
-            Text("Mochy", style = storageText(16f, FontWeight.SemiBold))
+            Text("Mushy", style = storageText(16f, FontWeight.SemiBold))
             Spacer(Modifier.width(16.dp))
             LegendSwatch(OthersGrey)
             Spacer(Modifier.width(8.dp))
@@ -179,12 +179,12 @@ private fun OverallCard(usage: StorageUsage?) {
 @Composable
 private fun BreakdownCard(usage: StorageUsage?) {
     StorageCardColumn {
-        Text("Mochy app data usage", style = storageText(17f))
+        Text("Mushy app data usage", style = storageText(17f))
         Spacer(Modifier.height(14.dp))
         UsageBar(
             parts = listOf(
                 BarPart(CacheOrange, usage?.cache ?: 0),
-                BarPart(MochyGreen, usage?.downloads ?: 0),
+                BarPart(MushyGreen, usage?.downloads ?: 0),
                 BarPart(DatabaseRed, usage?.database ?: 0),
                 BarPart(AppDataBlue, usage?.appData ?: 0),
             ),
@@ -193,7 +193,7 @@ private fun BreakdownCard(usage: StorageUsage?) {
         Spacer(Modifier.height(16.dp))
         Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             LegendRow(CacheOrange, "Cache", usage?.let { formatSize(it.cache) })
-            LegendRow(MochyGreen, "Downloaded music & local", usage?.let { formatSize(it.downloads) })
+            LegendRow(MushyGreen, "Downloaded music & local", usage?.let { formatSize(it.downloads) })
             LegendRow(DatabaseRed, "Database", usage?.let { formatSize(it.database) })
             LegendRow(AppDataBlue, "App data", usage?.let { formatSize(it.appData) })
         }
@@ -249,7 +249,7 @@ private fun CacheLimitCard(limit: Int, onLimitChange: (Int) -> Unit, appliesLate
             exit = shrinkVertically() + fadeOut(),
         ) {
             Text(
-                "The new limit starts next time you open Mochy.",
+                "The new limit starts next time you open Mushy.",
                 style = storageText(12f, FontWeight.Medium, StorageMuted, -0.1f),
                 modifier = Modifier.padding(top = 8.dp),
             )

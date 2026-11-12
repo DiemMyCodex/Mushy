@@ -84,7 +84,7 @@ internal fun List<RemotePlaylist>.named(name: String): RemotePlaylist? {
 /** A signed-in account's library, read on demand. */
 interface AccountLibrary {
     val accountName: String?
-    /** The account's own picture, to start the Mochy profile from. */
+    /** The account's own picture, to start the Mushy profile from. */
     val accountPhotoUrl: String? get() = null
     suspend fun playlists(): List<RemotePlaylist>
     suspend fun tracks(playlist: RemotePlaylist): List<ImportedTrack>

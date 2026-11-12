@@ -157,7 +157,7 @@ class Audioscrobbler(
         /** the most plays one track.scrobble request takes */
         const val MAX_BATCH = 50
 
-        private const val USER_AGENT = "Mochy"
+        private const val USER_AGENT = "Mushy"
 
         private val client by lazy {
             HttpClient(OkHttp) {

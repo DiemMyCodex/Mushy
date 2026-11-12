@@ -532,7 +532,7 @@ private fun HomeShell() {
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_mushy_mark),
-                contentDescription = "Mochy",
+                contentDescription = "Mushy",
                 tint = Color.White,
                 modifier = Modifier
                     .launchMarkTarget()
@@ -1809,7 +1809,7 @@ fun HomeScreen(
                     Box(contentAlignment = Alignment.CenterStart) {
                         Icon(
                             painter = painterResource(R.drawable.ic_mushy_mark),
-                            contentDescription = "Mochy",
+                            contentDescription = "Mushy",
                             tint = Color.White,
                             modifier = Modifier
                                 .launchMarkTarget()

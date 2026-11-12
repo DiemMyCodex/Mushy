@@ -289,7 +289,7 @@ private fun AtmosCard(viewModel: AudioLabViewModel) {
         header = {
             LabToggleRow(
                 title = "Dolby Atmos & surround",
-                subtitle = "Plays 5.1, 7.1 and Atmos beds as 3D sound on any headphones, with Mochy's head model, instead of folding them to stereo. From the next song.",
+                subtitle = "Plays 5.1, 7.1 and Atmos beds as 3D sound on any headphones, with Mushy's head model, instead of folding them to stereo. From the next song.",
                 checked = spatial.surround,
                 onCheckedChange = { on -> viewModel.updateSpatial { it.copy(surround = on) } },
             )
@@ -483,7 +483,7 @@ private fun VolumeCard(viewModel: AudioLabViewModel) {
                 LabSlider("Volume limit", pct(volume.limit), volume.limit,
                     { v -> viewModel.updateVolume { it.copy(limit = (v * 100).roundToInt() / 100f) } }, 0.2f..1f)
                 Text(
-                    "Shapes Mochy's own volume (the player's slider, fades and ducking). The limit caps how loud the app ever plays.",
+                    "Shapes Mushy's own volume (the player's slider, fades and ducking). The limit caps how loud the app ever plays.",
                     fontFamily = InterFontFamily, fontSize = 12.sp, lineHeight = 16.sp, color = LabColors.Secondary,
                     modifier = Modifier.padding(top = 4.dp),
                 )

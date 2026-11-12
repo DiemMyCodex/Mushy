@@ -48,7 +48,7 @@ internal fun LazyListScope.libraryLocalTab(
         )
     }
 
-    // once Mochy may read the storage, the import card itself lists the phone's songs
+    // once Mushy may read the storage, the import card itself lists the phone's songs
     if (!hasStorageAccess) {
         item(key = "local_storage") {
             Text(
@@ -59,7 +59,7 @@ internal fun LazyListScope.libraryLocalTab(
                 modifier = Modifier.padding(horizontal = SearchHorizontalPadding + 2.dp, vertical = 10.dp),
             )
             LocalCard(onClick = onScan, modifier = Modifier.padding(horizontal = SearchHorizontalPadding)) {
-                LocalCardTitle("Let Mochy read your storage to find all your songs")
+                LocalCardTitle("Let Mushy read your storage to find all your songs")
             }
         }
     }

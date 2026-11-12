@@ -53,7 +53,7 @@ import com.mochyy.mochymusic.ui.player.lineLook
 import com.mochyy.mochymusic.ui.player.lyricAnchorIndex
 import com.mochyy.mochymusic.ui.player.lyricsLineInsets
 import com.mochyy.mochymusic.ui.player.restingLineStyle
-import com.mochyy.mochymusic.ui.player.share.MochyMark
+import com.mochyy.mochymusic.ui.player.share.MushyMark
 import com.mochyy.mochymusic.ui.player.usesAgentAlignment
 import com.mochyy.mochymusic.ui.theme.InterFontFamily
 import kotlinx.coroutines.flow.first
@@ -111,7 +111,7 @@ internal fun MusicOnlyCard(session: SongShareSession, positionMs: () -> Long, mo
             ClipProgress(session, positionMs, ink)
         }
         Spacer(Modifier.height(12.dp))
-        MochyMark(ink, size = 12f)
+        MushyMark(ink, size = 12f)
     }
 }
 
@@ -144,7 +144,7 @@ internal fun LyricsCard(session: SongShareSession, positionMs: () -> Long, movin
             StillLyrics(session, lines, ink)
         }
         Spacer(Modifier.height(16.dp))
-        MochyMark(ink, size = 12f)
+        MushyMark(ink, size = 12f)
     }
 }
 

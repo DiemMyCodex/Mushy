@@ -555,7 +555,7 @@ fun MushySettingsScreen(navController: NavController) {
         }
         }
 
-        // Top bar: Mochy mark + "Settings" title slide away on scroll (progressive glass blur
+        // Top bar: Mushy mark + "Settings" title slide away on scroll (progressive glass blur
         // behind the gradient, matching Library/Search) while the search field glides up to sit
         // beside the profile avatar.
         SearchGlassTopBar(
@@ -568,7 +568,7 @@ fun MushySettingsScreen(navController: NavController) {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Icon(
                         painter = painterResource(R.drawable.ic_mushy_mark),
-                        contentDescription = "Mochy",
+                        contentDescription = "Mushy",
                         tint = Color.White,
                         modifier = Modifier.size(SettingsMarkSize),
                     )

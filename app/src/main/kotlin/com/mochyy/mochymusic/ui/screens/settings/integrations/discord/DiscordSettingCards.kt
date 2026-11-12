@@ -368,7 +368,7 @@ internal fun DiscordImageSourceCard(
                 onValueChange = { onSpinChange(spin.copy(fps = it)) },
             )
             Text(
-                text = "Turns forever. Discord can only show pictures from the web, so Mochy makes a GIF of " +
+                text = "Turns forever. Discord can only show pictures from the web, so Mushy makes a GIF of " +
                     "the artwork and puts it on a free file host (uguu.se, which deletes it after three hours). " +
                     "Slower, smoother turns make a bigger GIF that takes a little longer to show up; the still " +
                     "artwork stands in meanwhile. 50 fps is as smooth as a GIF can play.",

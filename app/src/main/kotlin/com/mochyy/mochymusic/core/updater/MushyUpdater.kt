@@ -101,9 +101,9 @@ import androidx.compose.ui.text.style.TextDecoration
 
 data class ChangelogSection(val title: String, val items: List<String>)
 
-sealed class MochyUpdateStatus {
-    object Idle : MochyUpdateStatus()
-    object Checking : MochyUpdateStatus()
+sealed class MushyUpdateStatus {
+    object Idle : MushyUpdateStatus()
+    object Checking : MushyUpdateStatus()
     data class Available(
         val version: String,
         val changelog: List<ChangelogSection>,
@@ -112,10 +112,10 @@ sealed class MochyUpdateStatus {
         val description: String?,
         val imageUrl: String?,
         val apkUrl: String?
-    ) : MochyUpdateStatus()
+    ) : MushyUpdateStatus()
 
-    data class NoUpdate(val version: String) : MochyUpdateStatus()
-    data class Error(val message: String) : MochyUpdateStatus()
+    data class NoUpdate(val version: String) : MushyUpdateStatus()
+    data class Error(val message: String) : MushyUpdateStatus()
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
@@ -123,7 +123,7 @@ sealed class MochyUpdateStatus {
 fun UpdateScreen(navController: NavHostController) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    var status by remember { mutableStateOf<MochyUpdateStatus>(MochyUpdateStatus.NoUpdate(BuildConfig.VERSION_NAME)) }
+    var status by remember { mutableStateOf<MushyUpdateStatus>(MushyUpdateStatus.NoUpdate(BuildConfig.VERSION_NAME)) }
     var isDownloading by remember { mutableStateOf(false) }
     var downloadProgress by remember { mutableStateOf(0f) }
     var isDownloadComplete by remember { mutableStateOf(false) }
@@ -182,7 +182,7 @@ fun UpdateScreen(navController: NavHostController) {
     }
 
     fun triggerUpdateCheck() {
-        status = MochyUpdateStatus.Checking
+        status = MushyUpdateStatus.Checking
         scope.launch {
 
             delay(1000L)
@@ -192,7 +192,7 @@ fun UpdateScreen(navController: NavHostController) {
                     saveLastCheckedTime(context, LocalDateTime.now().format(DateTimeFormatter.ofPattern("d MMMM yyyy, h:mm a")))
                     saveUpdateAvailableState(context, isAvailable)
                     status = if (isAvailable) {
-                        MochyUpdateStatus.Available(
+                        MushyUpdateStatus.Available(
                             version = tag,
                             changelog = changelog,
                             size = size,
@@ -202,11 +202,11 @@ fun UpdateScreen(navController: NavHostController) {
                             apkUrl = apkUrl
                         )
                     } else {
-                        MochyUpdateStatus.NoUpdate(tag)
+                        MushyUpdateStatus.NoUpdate(tag)
                     }
                 },
                 onError = {
-                    status = MochyUpdateStatus.Error(context.getString(R.string.cant_check_updates))
+                    status = MushyUpdateStatus.Error(context.getString(R.string.cant_check_updates))
                 }
             )
         }
@@ -224,7 +224,7 @@ fun UpdateScreen(navController: NavHostController) {
         topBar = {
             LargeTopAppBar(
                 title = {
-                    val titleText = if (status is MochyUpdateStatus.Available) {
+                    val titleText = if (status is MushyUpdateStatus.Available) {
                         buildAnnotatedString {
                             append(stringResource(R.string.new_update) + " ")
                             withStyle(
@@ -233,7 +233,7 @@ fun UpdateScreen(navController: NavHostController) {
                                     fontWeight = FontWeight.Bold
                                 )
                             ) {
-                                append((status as MochyUpdateStatus.Available).version)
+                                append((status as MushyUpdateStatus.Available).version)
                             }
                         }
                     } else {
@@ -273,16 +273,16 @@ fun UpdateScreen(navController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     when (val currentStatus = status) {
-                        is MochyUpdateStatus.Idle, is MochyUpdateStatus.Checking, is MochyUpdateStatus.NoUpdate, is MochyUpdateStatus.Error -> {
+                        is MushyUpdateStatus.Idle, is MushyUpdateStatus.Checking, is MushyUpdateStatus.NoUpdate, is MushyUpdateStatus.Error -> {
                             AnimatedActionButton(
                                 text = stringResource(R.string.check_for_update),
                                 onClick = { triggerUpdateCheck() },
-                                enabled = currentStatus !is MochyUpdateStatus.Checking && !isDownloading,
+                                enabled = currentStatus !is MushyUpdateStatus.Checking && !isDownloading,
                                 modifier = Modifier.fillMaxWidth()
                             )
                         }
 
-                        is MochyUpdateStatus.Available -> {
+                        is MushyUpdateStatus.Available -> {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -360,7 +360,7 @@ fun UpdateScreen(navController: NavHostController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
-                    val contentModifier = if (status is MochyUpdateStatus.Available) {
+                    val contentModifier = if (status is MushyUpdateStatus.Available) {
                         Modifier.fillMaxWidth()
                     } else {
                         Modifier.fillParentMaxSize()
@@ -371,13 +371,13 @@ fun UpdateScreen(navController: NavHostController) {
                         contentAlignment = Alignment.Center
                     ) {
                         when (val currentStatus = status) {
-                            is MochyUpdateStatus.Checking -> {
+                            is MushyUpdateStatus.Checking -> {
                                 androidx.compose.material3.ContainedLoadingIndicator(
                                     modifier = Modifier.size(64.dp)
                                 )
                             }
 
-                            is MochyUpdateStatus.NoUpdate -> {
+                            is MushyUpdateStatus.NoUpdate -> {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
@@ -405,7 +405,7 @@ fun UpdateScreen(navController: NavHostController) {
                                 }
                             }
 
-                            is MochyUpdateStatus.Error -> {
+                            is MushyUpdateStatus.Error -> {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
@@ -426,7 +426,7 @@ fun UpdateScreen(navController: NavHostController) {
                                 }
                             }
 
-                            is MochyUpdateStatus.Available -> {
+                            is MushyUpdateStatus.Available -> {
                                 Column(
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalAlignment = Alignment.Start

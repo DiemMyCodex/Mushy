@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Widevine for streams from source modules. The device's own CDM does the decrypting, inside the
- * platform; Mochy only carries the CDM's challenge to the module, which trades it with its
+ * platform; Mushy only carries the CDM's challenge to the module, which trades it with its
  * service's license server. Multi-session, because Apple's streams change key after the first
  * segment.
  */

@@ -13,7 +13,7 @@ import com.mochyy.mochymusic.constants.LibreFmUsernameKey
 import com.music.lastfm.Audioscrobbler
 
 /**
- * The services Mochy scrobbles to. Both speak Last.fm's API, so one client serves both. Their
+ * The services Mushy scrobbles to. Both speak Last.fm's API, so one client serves both. Their
  * API keys come from local.properties (or CI secrets) at build time and never sit in the source.
  */
 enum class ScrobbleSite(

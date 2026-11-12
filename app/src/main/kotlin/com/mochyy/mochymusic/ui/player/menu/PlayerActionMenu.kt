@@ -456,7 +456,7 @@ internal fun MenuRow(
     }
 }
 
-/** The phone doesn't sleep while Mochy is open: for following lyrics, or a phone on a car mount. */
+/** The phone doesn't sleep while Mushy is open: for following lyrics, or a phone on a car mount. */
 @Composable
 private fun KeepScreenOnRow() {
     val (keepScreenOn, setKeepScreenOn) = rememberPreference(KeepScreenOn, defaultValue = false)

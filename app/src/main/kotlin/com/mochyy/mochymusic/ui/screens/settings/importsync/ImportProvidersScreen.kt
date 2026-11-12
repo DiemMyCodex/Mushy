@@ -34,7 +34,7 @@ fun ImportProvidersScreen(
 
     // some file managers label .csv as text/plain or octet-stream, so don't filter too hard
     val backupPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
-        if (uri != null) viewModel.loadFile(uri, sourceLabel = "Mochy backup")
+        if (uri != null) viewModel.loadFile(uri, sourceLabel = "Mushy backup")
     }
 
     SubSettingsScaffold(
@@ -91,9 +91,9 @@ fun ImportProvidersScreen(
             style = SettingsGroupStyle.Grouped,
             items = listOf(
                 SettingsItem(
-                    title = { Text("Mochy backup") },
-                    highlightKey = "Mochy backup",
-                    descriptionText = "A CSV from Export to Mochy CSV. Restores exact songs",
+                    title = { Text("Mushy backup") },
+                    highlightKey = "Mushy backup",
+                    descriptionText = "A CSV from Export to Mushy CSV. Restores exact songs",
                     icon = painterResource(R.drawable.backup),
                     iconShape = CircleShape,
                     onClick = { backupPicker.launch(arrayOf("text/*", "application/csv", "application/vnd.ms-excel", "application/octet-stream")) },

@@ -121,7 +121,7 @@ fun YouTubeSyncScreen(
                 ),
                 toggleItem(
                     title = "Copy YouTube history here",
-                    description = "Plays from your other devices join Mochy's history on each sync",
+                    description = "Plays from your other devices join Mushy's history on each sync",
                     icon = R.drawable.history,
                     checked = pullHistory,
                     enabled = signedIn,
@@ -163,7 +163,7 @@ fun YouTubeSyncScreen(
                 ),
                 SettingsItem(
                     title = { Text("Copy YouTube history now") },
-                    descriptionText = "Only adds plays Mochy doesn't have yet",
+                    descriptionText = "Only adds plays Mushy doesn't have yet",
                     icon = painterResource(R.drawable.history),
                     iconShape = CircleShape,
                     enabled = signedIn && !state.running,
@@ -282,7 +282,7 @@ fun YouTubeSyncScreen(
             },
         ) {
             Text(
-                "Each playlist that only exists in Mochy gets a private copy on your YouTube account. After that, changes go to both.",
+                "Each playlist that only exists in Mushy gets a private copy on your YouTube account. After that, changes go to both.",
                 style = MaterialTheme.typography.bodyMedium,
             )
         }

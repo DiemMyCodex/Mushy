@@ -135,7 +135,7 @@ class OnboardingViewModel @Inject constructor(
         }
     }
 
-    /** A Mochy (or any playlist) CSV; null on success, otherwise what went wrong. */
+    /** A Mushy (or any playlist) CSV; null on success, otherwise what went wrong. */
     suspend fun importBackup(uri: Uri): String? = withContext(Dispatchers.IO) {
         try {
             val text = context.contentResolver.openInputStream(uri)?.bufferedReader(Charsets.UTF_8)?.use { it.readText() }

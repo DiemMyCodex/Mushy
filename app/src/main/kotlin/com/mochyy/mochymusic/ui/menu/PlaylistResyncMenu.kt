@@ -183,7 +183,7 @@ fun ResyncLinkDialog(sourceLabel: String, onDismiss: () -> Unit, onDone: (String
         onDismiss = onDismiss,
         extraContent = {
             Text(
-                "This playlist was imported before Mochy saved where it came from. Its link is how Re-sync finds it again.",
+                "This playlist was imported before Mushy saved where it came from. Its link is how Re-sync finds it again.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 12.dp),

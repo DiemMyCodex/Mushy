@@ -674,7 +674,7 @@ private fun AutoPlaylistSearchBar(
 
 /**
  * the small line above each service's songs in Liked songs' import order: its app icon, its name,
- * then a hairline across. the ones liked here get Mochy's own.
+ * then a hairline across. the ones liked here get Mushy's own.
  */
 @Composable
 private fun LikedSourceSeparator(source: ImportSource?, modifier: Modifier = Modifier) {
@@ -704,7 +704,7 @@ private fun LikedSourceSeparator(source: ImportSource?, modifier: Modifier = Mod
         }
         Spacer(Modifier.width(6.dp))
         Text(
-            text = source?.label?.replaceFirstChar { it.uppercase() } ?: "Mochy",
+            text = source?.label?.replaceFirstChar { it.uppercase() } ?: "Mushy",
             style = PlaylistStatsStyle,
             color = Color.White.copy(alpha = 0.62f),
             maxLines = 1,

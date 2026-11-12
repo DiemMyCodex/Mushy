@@ -37,7 +37,7 @@ import kotlin.random.Random
 /**
  * One live connection to Discord's gateway, signed in with the OAuth token, the way Discord's
  * own Social SDK does it. A status sent over it lasts only as long as the connection: when
- * Mochy is closed or killed, Discord drops it by itself rather than leaving an old song up.
+ * Mushy is closed or killed, Discord drops it by itself rather than leaving an old song up.
  *
  * It doesn't reconnect on its own. When it closes it calls [onClosed] once, and the owner opens
  * a new one when there's something to show again.
@@ -130,7 +130,7 @@ internal class DiscordGateway(
                 put("intents", Intents)
                 put("properties", buildJsonObject {
                     put("os", "Android")
-                    put("browser", "Mochy")
+                    put("browser", "Mushy")
                     put("device", "Android")
                 })
             },
@@ -191,7 +191,7 @@ internal class DiscordGateway(
         private const val OpHello = 10
         private const val OpHeartbeatAck = 11
 
-        // What the Social SDK sends. Friends' presence (1 shl 23) is left out: Mochy never reads
+        // What the Social SDK sends. Friends' presence (1 shl 23) is left out: Mushy never reads
         // it, and with many friends online it would keep the radio busy for nothing.
         private const val Capabilities = (1 shl 4) or (1 shl 5) or (1 shl 12) or (1 shl 16)
         private const val Intents = (1 shl 12) or (1 shl 18) or (1 shl 19) or (1 shl 22) or

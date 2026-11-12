@@ -40,7 +40,7 @@ object MushyCsvExporter {
             }
         }
 
-        writeMochyCsv(rows) to Summary(liked.size, playlists.size, playlistSongs)
+        writeMushyCsv(rows) to Summary(liked.size, playlists.size, playlistSongs)
     }
 
     private fun Song.toRow(playlistName: String?) = CsvExportRow(

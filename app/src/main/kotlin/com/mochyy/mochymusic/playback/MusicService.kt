@@ -222,7 +222,7 @@ import com.mochyy.mochymusic.constants.ForcePlaybackKey
 import com.mochyy.mochymusic.utils.dataStore
 import com.mochyy.mochymusic.utils.get
 import com.mochyy.mochymusic.utils.reportException
-import com.mochyy.mochymusic.widget.MochyWidgetManager
+import com.mochyy.mochymusic.widget.MushyWidgetManager
 import com.mochyy.mochymusic.widget.MusicWidgetReceiver
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -318,7 +318,7 @@ class MusicService :
     lateinit var sourceModules: com.mochyy.mochymusic.modules.SourceModules
 
     @Inject
-    lateinit var widgetManager: MochyWidgetManager
+    lateinit var widgetManager: MushyWidgetManager
 
     private lateinit var audioManager: AudioManager
     private var audioFocusRequest: AudioFocusRequest? = null
@@ -3855,7 +3855,7 @@ class MusicService :
 
     /**
      * The app's top banner (the one "Added to playlist" uses), with the song's cover. Only while
-     * Mochy is on screen: one raised in the background would greet the user later, for a song
+     * Mushy is on screen: one raised in the background would greet the user later, for a song
      * that's long gone.
      */
     private fun showBanner(text: String) {

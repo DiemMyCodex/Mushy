@@ -14,7 +14,7 @@ class CatalogTrack(
 )
 
 /**
- * Finds the catalog song that is the same recording as the one Mochy is playing, for any
+ * Finds the catalog song that is the same recording as the one Mushy is playing, for any
  * module. Shared so every source matches alike. Titles are
  * compared without the decorations sources add ("feat.", "Remastered", "Official Video"), but the
  * words that make it a different recording (remix, live, acoustic, sped up...) count against it.

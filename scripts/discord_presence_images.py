@@ -1,5 +1,5 @@
-# Draws the pictures Mochy hands to Discord for its Rich Presence: the play/pause badge with a
-# ring that fills as the song goes, and the Mochy logo. Discord fetches them straight from this
+# Draws the pictures Mushy hands to Discord for its Rich Presence: the play/pause badge with a
+# ring that fills as the song goes, and the Mushy logo. Discord fetches them straight from this
 # repo on GitHub, so after changing them, bump VERSION (Discord keeps old copies by URL) and the
 # same number in discord/PresenceImages.kt, then push.
 #

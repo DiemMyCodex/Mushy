@@ -55,7 +55,7 @@ sealed interface DiscordLogin {
 
 /**
  * Signing in to Discord on Discord's own page, in the browser. It's OAuth with PKCE, so no secret
- * ships inside Mochy, and the password never passes through it. Discord sends the browser back
+ * ships inside Mushy, and the password never passes through it. Discord sends the browser back
  * to discord-<id>:/authorize/callback, and [DiscordLoginActivity] hands that to [finish].
  */
 @Singleton
@@ -82,7 +82,7 @@ class DiscordAuth @Inject constructor(
 
     /**
      * The page to send the user to. The check value and the PKCE verifier are saved first, since
-     * Android may close Mochy while the browser is in front.
+     * Android may close Mushy while the browser is in front.
      */
     suspend fun loginUri(): Uri {
         val state = randomCode(24)
@@ -126,7 +126,7 @@ class DiscordAuth @Inject constructor(
         if (code == null) {
             _login.value = DiscordLogin.Failed(
                 if (redirect.getQueryParameter("error") == "access_denied") {
-                    "You said no on Discord's page, so Mochy isn't connected."
+                    "You said no on Discord's page, so Mushy isn't connected."
                 } else {
                     "Discord didn't let the sign-in through. Try again."
                 },
@@ -179,7 +179,7 @@ class DiscordAuth @Inject constructor(
 
     /**
      * Discord turned [rejected] down. Renew it once; if Discord says the login itself is gone
-     * (the user removed Mochy from their authorised apps), sign out so the page says so.
+     * (the user removed Mushy from their authorised apps), sign out so the page says so.
      */
     suspend fun renew(rejected: String): String? = refreshing.withLock {
         val prefs = context.dataStore.data.first()
@@ -231,7 +231,7 @@ class DiscordAuth @Inject constructor(
     }
 
     /**
-     * Older Mochy builds logged in by reading the account's own login token out of a web page.
+     * Older Mushy builds logged in by reading the account's own login token out of a web page.
      * That token can do anything the account can, so it's wiped rather than left lying around.
      */
     suspend fun forgetOldLogin() {

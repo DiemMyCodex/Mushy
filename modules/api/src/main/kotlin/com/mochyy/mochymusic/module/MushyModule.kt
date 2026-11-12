@@ -22,12 +22,12 @@ data class ModuleInfo(
 /** what a module brings to mochy, one module can bring several */
 enum class ModuleFeature { AudioSource, Lyrics, Look }
 
-/** What Mochy gives a module. */
+/** What Mushy gives a module. */
 interface ModuleHost {
     /** small key-value storage private to this module: tokens, choices */
     val storage: ModuleStorage
 
-    /** HTTP through Mochy's own client, so its proxy, DNS and IP-version settings apply. Blocking. */
+    /** HTTP through Mushy's own client, so its proxy, DNS and IP-version settings apply. Blocking. */
     fun http(request: HttpRequest): HttpResponse
 
     fun log(message: String)
@@ -57,7 +57,7 @@ class HttpResponse(val code: Int, val body: ByteArray, val headers: Map<String, 
     fun header(name: String): String? = headers[name.lowercase()]
 }
 
-/** The track Mochy wants to play, as Mochy knows it. */
+/** The track Mushy wants to play, as Mushy knows it. */
 data class TrackQuery(
     val title: String,
     val artists: List<String>,
@@ -67,7 +67,7 @@ data class TrackQuery(
 )
 
 /**
- * How a module's account is signed into: Mochy opens [startUrl] in its sign-in browser and
+ * How a module's account is signed into: Mushy opens [startUrl] in its sign-in browser and
  * passes every request header the service's own web page sends to [MushyModule.onSignInHeader].
  */
 data class SignInSpec(
@@ -92,7 +92,7 @@ data class StreamOption(val id: String, val label: String, val description: Stri
 
 /**
  * A setting the module offers, shown as a row of chips: the stream quality, the catalog region.
- * The first option is the default; Mochy keeps what was picked and passes it to every call.
+ * The first option is the default; Mushy keeps what was picked and passes it to every call.
  */
 data class ModuleChoice(val id: String, val label: String, val options: List<StreamOption>)
 

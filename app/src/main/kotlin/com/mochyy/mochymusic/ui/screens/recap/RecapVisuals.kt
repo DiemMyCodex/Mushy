@@ -1,6 +1,6 @@
 // RecapVisuals.kt
 //
-// The pieces the Mochy page, the recap story and Stats share: one clock, the dot grid, the giant
+// The pieces the Mushy page, the recap story and Stats share: one clock, the dot grid, the giant
 // slow-moving words behind everything, the moving cover/artist gradient, odometer numbers and the
 // gradient-to-white text. All of them animate in draw or layer lambdas only, so a running page
 // redraws but never recomposes.

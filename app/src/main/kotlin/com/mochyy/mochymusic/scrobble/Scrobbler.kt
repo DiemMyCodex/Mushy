@@ -177,7 +177,7 @@ class Scrobbler @Inject constructor(
         queue.forget(site)
     }
 
-    /** The service took back Mochy's access, so the account is forgotten here too. */
+    /** The service took back Mushy's access, so the account is forgotten here too. */
     private suspend fun signedOut(site: ScrobbleSite) {
         signOut(site)
         val message = context.getString(R.string.scrobble_signed_out, site.label)

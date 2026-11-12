@@ -56,7 +56,7 @@ class PlayerMenuExtras internal constructor(
         when (action) {
             PlayerMenuAction.KEEP_AWAKE -> {
                 setKeepScreenOn(!keepScreenOn)
-                toast(if (keepScreenOn) "The screen can sleep again" else "The screen stays on while Mochy is open")
+                toast(if (keepScreenOn) "The screen can sleep again" else "The screen stays on while Mushy is open")
             }
             PlayerMenuAction.TRANSLATE_LYRICS -> {
                 if (translating) {

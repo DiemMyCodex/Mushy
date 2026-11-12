@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-/** Mochy's calls to Discord's web API and gateway, sharing one connection pool. */
+/** Mushy's calls to Discord's web API and gateway, sharing one connection pool. */
 internal object DiscordHttp {
     const val Api = "https://discord.com/api/v10"
 

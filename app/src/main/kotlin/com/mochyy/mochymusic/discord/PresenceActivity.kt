@@ -116,7 +116,7 @@ data class PresenceActivity(
     }
 }
 
-/** The page a button opens for [track]: the song itself where Mochy knows it, a search otherwise. */
+/** The page a button opens for [track]: the song itself where Mushy knows it, a search otherwise. */
 fun PresenceButtonTarget.linkFor(track: NowPlaying): String {
     val query = Uri.encode("${track.title} ${track.artist}".trim())
     return when (this) {

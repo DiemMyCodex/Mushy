@@ -2,7 +2,7 @@
 //
 // The monthly recap: everything after the barcode is scratched. It runs in a full-screen dialog
 // window so it can cover the nav bar and mini player, and it starts and ends on exactly what the
-// Mochy page is showing - the same card, the same giant column, the same dots - so the window
+// Mushy page is showing - the same card, the same giant column, the same dots - so the window
 // never shows as a seam: it fades in over an identical picture, and on the way out it shrinks back
 // into the page header before it goes.
 //
