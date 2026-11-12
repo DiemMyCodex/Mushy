@@ -38,7 +38,8 @@ def run_git(cmd):
     env["SSL_CERT_FILE"] = CA_FILE
     env["CURL_CA_BUNDLE"] = CA_FILE
     env["GIT_SSL_CAINFO"] = CA_FILE
-    res = subprocess.run(cmd, shell=True, cwd=PROJECT_DIR, env=env, capture_output=True, text=True)
+    sh_bin = "/data/user/0/com.antigravity.app/files/usr/bin/sh"
+    res = subprocess.run(cmd, shell=True, executable=sh_bin, cwd=PROJECT_DIR, env=env, capture_output=True, text=True)
     return res.returncode, res.stdout.strip(), res.stderr.strip()
 
 def gh_api(endpoint):
