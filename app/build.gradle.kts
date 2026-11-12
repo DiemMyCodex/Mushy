@@ -178,8 +178,7 @@ extensions.configure<ApplicationExtension> {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // Fall back to the debug keystore locally so a release-quality build is always
-            // runnable on a dev machine. CI still signs with the real key when secrets exist.
+            // Fall back to persistent debug keystore so every build uses the exact same signature
             signingConfig = if (hasReleaseSigning) {
                 signingConfigs.getByName("release")
             } else {
